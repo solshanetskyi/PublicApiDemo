@@ -1,0 +1,6 @@
+1. Add Authentication screen.
+2. Skulls in some rooms.
+3. Inventory.
+4. Second floor
+5. Mini-map
+6. Some live creatures
