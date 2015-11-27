@@ -36,13 +36,13 @@ public class GameManager : MonoBehaviour {
             {
                 switch (worldMapLines[y][x])
                 {
-                    case 'W':
+                    case 'w':
                         worldMap.SetTileObjects(x, y, new WallSection());
                         break;
                     case ' ':
                         worldMap.SetTileObjects(x, y, new FloorSection());
                         break;
-                    case 'D':
+                    case 'd':
                         worldMap.SetTileObjects(x, y, new DoorFragment(), new FloorSection());
                         break;
                 }

@@ -1,20 +1,118 @@
-WWWWWWWWWWWWWWWWWWWW
-W    D             W
-W    D             W
-W    W             W
-WWWWWW             W
-W                  W
-W                  W
-W    WDDDDDDDDW    W
-W                  W
-W                  W
-W                  W
-W       W          W
-W       W          W
-W    W  W  W       W
-W    W  W  W       W
-W    W  W  W       W
-W    WWWWWWW       W
-W       W          W
-W       W          W
-WWWWWWWWWWWWWWWWWWWW
+        wwwwwwwwww       wwwwwwwwww       wwwwwwwwww
+        w        w       w        w       w        w
+        w        w       w        w       w        w
+        w        w       w        wwwwwwwww        w
+        w        w       w        d       d        w
+        w        w       w        d       d        w
+        w        w       w        d       d        w
+        w        w       w        wwwwwwwww        w
+        w        w       w        w       w        w
+        w        w       w        w       wwwwwwwwww
+        w        w       w        w
+        w        w       w        w
+        w        w       w        w       wwwwwwwwww
+        w        w       w        w       w        w
+        w        w       w        w       w        w
+        w        w       w        wwwwwwwww        w
+        w        w       w        d       d        w
+        w        w       w        d       d        w
+        w        w       w        d       d        w
+        w        w       w        wwwwwwwww        w
+        w        w       w        w       w        w
+        w        wwwwwwwww        w       wwwwwwwwww
+        w        d       d        w
+        w        d       d        w
+        w        d       d        w       wwwwwwwwww       wwwwwwwwww
+        w        wwwwwwwww        w       w        w       w        w
+        w        w       w        w       w        w       w        w
+        w        w       w        w       w        wwwwwwwww        w
+        w        w       w        w       w        d       d        w
+        w        w       w        w       w        d       d        w
+        w        w       w        w       w        d       d        w
+        w        w       w        w       w        wwwwwwwww        w
+        w        w       w        w       w        w       w        w
+        w        w       w        wwwwwwwww        w       wwwwwwwwww
+        w        w       w        d       d        w
+        w        w       w        d       d        w
+        w        w       w        d       d        w       wwwwwwwwww
+        w        w       w        wwwwwwwww        w       w        w
+        w        w       w        w       w        w       w        w
+        w        w       w        w       w        wwwwwwwww        w
+        w        w       w        w       w        d       d        w
+        w        w       w        w       w        d       d        w
+        w        w       w        w       w        d       d        w
+        w        w       w        w       w        wwwwwwwww        w
+        w        w       w        w       w        w       w        w
+        w        w       wwwwwwwwww       wwwwwwwwww       wwwwwwwwww
+        w        w
+        w        w
+        w        w       wwwwwwwwww       wwwwwwwwww
+        w        w       w        w       w        w
+        w        w       w        w       w        w
+        w        w       w        wwwwwwwww        w
+        w        w       w        d       d        w
+        w        w       w        d       d        w
+        w        w       w        d       d        w
+        w        w       w        wwwwwwwww        w
+        w        w       w        w       w        w
+w       w        wwwwwwwww        w       wwwwwwwwww
+d       d        d       d        w
+d       d        d       d        w
+d       d        d       d        w       wwwwwwwwww
+wwwwwwwww        wwwwwwwww        w       w        w
+        w        w       w        w       w        w
+        w        w       w        wwwwwwwww        w
+        w        w       w        d       d        w
+        w        w       w        d       d        w
+        w        w       w        d       d        w
+        w        w       w        wwwwwwwww        w
+        w        w       w        w       w        w
+        w        w       wwwwwwwwww       wwwwwwwwww
+        w        w
+        w        w
+        w        w       wwwwwwwwww       wwwwwwwwww
+        w        w       w        w       w        w
+        w        w       w        w       w        w
+        w        w       w        wwwwwwwww        w
+        w        w       w        d       d        w
+        w        w       w        d       d        w
+        w        w       w        d       d        w
+        w        w       w        wwwwwwwww        w
+        w        w       w        w       w        w
+        w        w       w        w       wwwwwwwwww
+        w        w       w        w
+        w        w       w        w
+        w        w       w        w       wwwwwwwwww
+        w        w       w        w       w        w
+        w        w       w        w       w        w
+        w        w       w        wwwwwwwww        w
+        w        w       w        d       d        w
+        w        w       w        d       d        w
+        w        w       w        d       d        w
+        w        w       w        wwwwwwwww        w
+        w        w       w        w       w        w
+        w        wwwwwwwww        w       wwwwwwwwww
+        w        d       d        w
+        w        d       d        w
+        w        d       d        w       wwwwwwwwww       wwwwwwwwww
+        w        wwwwwwwww        w       w        w       w        w
+        w        w       w        w       w        w       w        w
+        w        w       w        w       w        wwwwwwwww        w
+        w        w       w        w       w        d       d        w
+        w        w       w        w       w        d       d        w
+        w        w       w        w       w        d       d        w
+        w        w       w        w       w        wwwwwwwww        w
+        w        w       w        w       w        w       w        w
+        w        w       w        wwwwwwwww        w       wwwwwwwwww
+        w        w       w        d       d        w
+        w        w       w        d       d        w
+        w        w       w        d       d        w       wwwwwwwwww
+        w        w       w        wwwwwwwww        w       w        w
+        w        w       w        w       w        w       w        w
+        w        w       w        w       w        wwwwwwwww        w
+        w        w       w        w       w        d       d        w
+        w        w       w        w       w        d       d        w
+        w        w       w        w       w        d       d        w
+        w        w       w        w       w        wwwwwwwww        w
+        w        w       w        w       w        w       w        w
+        wwwwwwwwww       wwwwwwwwww       wwwwwwwwww       wwwwwwwwww
