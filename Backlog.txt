@@ -4,3 +4,4 @@
 4. Second floor
 5. Mini-map
 6. Some live creatures
+8. Terminal in the centre of aroom

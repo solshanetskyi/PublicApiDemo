@@ -1,41 +1,31 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace LabyrinthGenerator
 {
-    using System.Collections.Generic;
-    using System.Linq;
-
     public class Node
     {
-        private List<Node> _nodes;
-
-        private Node _parent;
-
         private string _name;
 
         public Node(string name)
         {
-            this._name = name;
-            this._nodes = new List<Node>();
+            _name = name;
+            Nodes = new List<Node>();
         }
 
-        public Node(Node parent, string name) :this(name)
+        public Node(Node parent, string name) : this(name)
         {
-            this._parent = parent;
+            Parent = parent;
         }
 
-        public List<Node> Nodes
-        {
-            get
-            {
-                return this._nodes;
-            }
-        }
+        public List<Node> Nodes { get; }
 
         public int Level
         {
             get
             {
-                int level = 1;
-                Node parent = this._parent;
+                var level = 1;
+                var parent = Parent;
 
                 while (parent != null)
                 {
@@ -47,36 +37,30 @@ namespace LabyrinthGenerator
             }
         }
 
-        public Node Parent
-        {
-            get
-            {
-                return this._parent;
-            }
-        }
+        public Node Parent { get; }
 
         public int GetSize()
         {
-            if (this._nodes.Count == 0)
+            if (Nodes.Count == 0)
                 return Settings.DefaultWidth;
 
-            return this._nodes.Sum(n => n.GetSize()) + (this._nodes.Count - 1) * Settings.Scale;
+            return Nodes.Sum(n => n.GetSize()) + (Nodes.Count - 1)*Settings.Scale;
         }
 
         public int GetMaxDepth()
         {
-            if (this._nodes.Count == 0)
-                return this.Level;
+            if (Nodes.Count == 0)
+                return Level;
 
-            return this._nodes.Max(n => n.GetMaxDepth());
+            return Nodes.Max(n => n.GetMaxDepth());
         }
 
         public int GetMaxWith()
         {
-            if (this._nodes.Count == 0)
+            if (Nodes.Count == 0)
                 return Settings.DefaultWidth;
 
-            return this._nodes.Count + (Settings.Scale + Settings.DefaultHeight);
+            return Nodes.Count + Settings.Scale + Settings.DefaultHeight;
         }
     }
 }
