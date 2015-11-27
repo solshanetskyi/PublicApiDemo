@@ -6,6 +6,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using Assets.Scripts;
+using Integration;
 
 public class GameManager : MonoBehaviour {
         public GameObject character;
@@ -22,13 +23,16 @@ public class GameManager : MonoBehaviour {
 
     private void BuildMaze()
     {
+        PublicApiGateway gateway = new PublicApiGateway();
+
+        var groups = gateway.GetDeviceGroups();
+
         TextAsset worldMapData = Resources.Load("WorldMap") as TextAsset;
         string[] worldMapLines = worldMapData.text.Split(new[] { "\r\n" }, StringSplitOptions.None);
 
         int width = worldMapLines.Max(l => l.Length);
         int height = worldMapLines.Length;
         WorldMap worldMap = new WorldMap(width, height);
-
 
         for (int y = 0; y < worldMapLines.Length; y++)
         {
