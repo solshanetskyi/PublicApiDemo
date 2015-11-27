@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SotiWorld.CSharp.Plugins", "SotiWorld.CSharp.Plugins.csproj", "{3F4B577B-202E-575C-1AA9-8C88DE31E560}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SotiWorld.CSharp", "SotiWorld.CSharp.csproj", "{6B762D17-3DF2-FC80-B1AF-619FD07FA28A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SotiWorld.CSharp.Editor", "SotiWorld.CSharp.Editor.csproj", "{269887C7-1CBC-E55F-C36D-3C60BCB822EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F4B577B-202E-575C-1AA9-8C88DE31E560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F4B577B-202E-575C-1AA9-8C88DE31E560}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F4B577B-202E-575C-1AA9-8C88DE31E560}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F4B577B-202E-575C-1AA9-8C88DE31E560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B762D17-3DF2-FC80-B1AF-619FD07FA28A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B762D17-3DF2-FC80-B1AF-619FD07FA28A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B762D17-3DF2-FC80-B1AF-619FD07FA28A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B762D17-3DF2-FC80-B1AF-619FD07FA28A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{269887C7-1CBC-E55F-C36D-3C60BCB822EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{269887C7-1CBC-E55F-C36D-3C60BCB822EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{269887C7-1CBC-E55F-C36D-3C60BCB822EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{269887C7-1CBC-E55F-C36D-3C60BCB822EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
