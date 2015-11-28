@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.2.3f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -53,11 +51,17 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
@@ -80,13 +84,10 @@
     <Compile Include="Assets\Scripts\FloorSection.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\ITileObject.cs" />
+    <Compile Include="Assets\Scripts\TextObject.cs" />
+    <Compile Include="Assets\Scripts\TextOrientation.cs" />
     <Compile Include="Assets\Scripts\WallSection.cs" />
     <Compile Include="Assets\Scripts\WorldMap.cs" />
-    <Compile Include="Integration\Device.cs" />
-    <Compile Include="Integration\DeviceGroup.cs" />
-    <Compile Include="Integration\IPublicApiGateway.cs" />
-    <Compile Include="Integration\PublicApiGateway.cs" />
-    <Compile Include="Integration\PublicApiGatewayMock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\WorldMap.txt" />
