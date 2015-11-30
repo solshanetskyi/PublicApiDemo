@@ -1,0 +1,88 @@
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Runtime.Remoting.Contexts;
+using SimpleJSON;
+
+public class PublicApiController : MonoBehaviour {
+
+	// Use this for initialization
+	void Start ()
+	{
+	    StartCoroutine(DownloadGroups());
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+
+    IEnumerator DownloadGroups()
+    {
+        string clientId = "3e398b5e01d14ae38b6ec975995ea591";
+//        string clientId = "ApiClient";
+        string clientSecret = "ClientSecret";
+        
+        var tokenBytes = System.Text.Encoding.ASCII.GetBytes(string.Format("{0}:{1}", clientId, clientSecret));
+
+        WWWForm form = new WWWForm();
+
+        form.AddField("grant_type", "password");
+        form.AddField("username", "Administrator");
+        form.AddField("password", "1");
+
+        Dictionary<string, string> header = new Dictionary<string,string>();
+        header.Add("Authorization", "Basic " + System.Convert.ToBase64String(tokenBytes));
+
+        WWW www = new WWW("https://owl.corp.soti.net/mobicontrol/api/token", form.data, header);
+
+        yield return www;
+
+        while (!www.isDone)
+        {
+            yield return new WaitForSeconds(1);
+        }
+
+        if (!string.IsNullOrEmpty(www.error))
+        {
+            Debug.Log("pomilochka " + www.error);
+        }
+
+        Debug.Log(www.text);
+
+        var root = JSON.Parse(www.text);
+
+        var accessToken = root["access_token"].Value;
+
+        Debug.Log("Token " + accessToken);
+
+        Dictionary<string, string> headers = new Dictionary<string, string>();
+        headers.Add("Authorization", "Bearer " + accessToken);
+        headers.Add("Accept", "application/json");
+
+        WWW getGroupsWww = new WWW("https://owl.corp.soti.net/mobicontrol/api/devicegroups", null, headers);
+
+        while (!getGroupsWww.isDone)
+        {
+            yield return new WaitForSeconds(1);
+        }
+
+        if (!string.IsNullOrEmpty(getGroupsWww.error))
+        {
+            Debug.Log("pomilochka" + getGroupsWww.error);
+        }
+
+        Debug.Log("Grupppii: " + getGroupsWww.text);
+
+        var rootGroupsNode = JSON.Parse(getGroupsWww.text);
+
+        foreach (var group in rootGroupsNode.Childs)
+        {
+            Debug.Log("GroupName : " + group["Name"].Value);
+            Debug.Log("Path : " + group["Path"].Value);
+//            Debug.Log("Path : " + group["Name"].Value);
+        }
+    }
+}
+
