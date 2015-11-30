@@ -1,27 +1,6 @@
-using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Runtime.Remoting.Contexts;
-using SimpleJSON;
-
-public class PublicApiController : MonoBehaviour {
-
-	// Use this for initialization
-	void Start ()
-	{
-	    StartCoroutine(DownloadGroups());
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-    IEnumerator DownloadGroups()
+	IEnumerator DownloadGroupsAndDevices()
     {
         string clientId = "3e398b5e01d14ae38b6ec975995ea591";
-//        string clientId = "ApiClient";
         string clientSecret = "ClientSecret";
         
         var tokenBytes = System.Text.Encoding.ASCII.GetBytes(string.Format("{0}:{1}", clientId, clientSecret));
@@ -81,8 +60,26 @@ public class PublicApiController : MonoBehaviour {
         {
             Debug.Log("GroupName : " + group["Name"].Value);
             Debug.Log("Path : " + group["Path"].Value);
-//            Debug.Log("Path : " + group["Name"].Value);
         }
-    }
-}
 
+        WWW devicesWWW = new WWW("https://owl.corp.soti.net/mobicontrol/api/devices", null, headers);
+
+        while (!devicesWWW.isDone)
+        {
+            yield return new WaitForSeconds(1);
+        }
+
+        if (!string.IsNullOrEmpty(devicesWWW.error))
+        {
+            Debug.Log("pomilochka" + devicesWWW.error);
+        }
+
+        Debug.Log("Devices: " + devicesWWW.text);
+
+        var rootDevicesNode = JSON.Parse(devicesWWW.text);
+
+        foreach (var device in rootDevicesNode.Childs)
+        {
+            Debug.Log("Device Name : " + device["DeviceName"].Value);
+            Debug.Log("Device Path : " + device["Path"].Value);
+        }
