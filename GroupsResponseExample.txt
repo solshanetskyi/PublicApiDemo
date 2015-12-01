@@ -6,6 +6,12 @@
     "Kind": "Regular"
   },
   {
+    "Name": "My Sub Company",
+    "Path": "\\\\My Company\\My Sub Company",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
     "Name": "Management Devices",
     "Path": "\\\\My Company\\Management Devices",
     "Icon": "Yellow",

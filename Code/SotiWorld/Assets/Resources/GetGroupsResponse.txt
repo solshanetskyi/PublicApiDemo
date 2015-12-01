@@ -1,0 +1,44 @@
+[
+  {
+    "Name": "My Company",
+    "Path": "\\\\My Company",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Management Devices",
+    "Path": "\\\\My Company\\Management Devices",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Sales Devices",
+    "Path": "\\\\My Company\\Sales Devices",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Warehouse Devices",
+    "Path": "\\\\My Company\\Warehouse Devices",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "devicegroup_13.42a93984ce9343a9b604467f8a09cdaa",
+    "Path": "\\\\devicegroup_13.42a93984ce9343a9b604467f8a09cdaa",
+    "Icon": "Green",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "devGroup1.5c6a4b74ee634b419efcccc4423d4fc8",
+    "Path": "\\\\devGroup1.5c6a4b74ee634b419efcccc4423d4fc8",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "devGroup2.73d885008fce42209eaf019789d8a8fa",
+    "Path": "\\\\devGroup2.73d885008fce42209eaf019789d8a8fa",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  }
+]

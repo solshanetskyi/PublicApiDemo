@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using Assets.Scripts;
 using Assets.Scripts.Integration;
+using Assets.Scripts.LabyrinthGeneration;
 
 public class GameManager : MonoBehaviour {
         public GameObject character;
@@ -28,8 +29,16 @@ public class GameManager : MonoBehaviour {
 //
 //        var deviceGroups = gateway.GetDeviceGroups();
 
-        TextAsset worldMapData = Resources.Load("WorldMap") as TextAsset;
-        string[] worldMapLines = worldMapData.text.Split(new[] { "\r\n" }, StringSplitOptions.None);
+        PublicApiGatewayMock gateway = new PublicApiGatewayMock();
+
+        var deviceGroups = gateway.GetDeviceGroups();
+        var devices = gateway.GetDevices();
+
+        string map = MapGenerator.GenerateMap(deviceGroups);
+
+        //TextAsset worldMapData = Resources.Load("WorldMap") as TextAsset;
+
+        string[] worldMapLines = map.Split(new[] { "\r\n" }, StringSplitOptions.None);
 
         int width = worldMapLines.Max(l => l.Length);
         int height = worldMapLines.Length;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Integration
 {
-    public class PublicApiGateway
+    public class PublicApiGateway : IPublicApiGateway
     {
         private readonly string _url;
         private readonly string _clientId;
@@ -89,6 +89,40 @@ namespace Assets.Scripts.Integration
             }
 
             return deviceGroups.ToArray();
+        }
+
+        public Device[] GetDevices()
+        {
+            List<Device> devices = new List<Device>();
+
+            Dictionary<string, string> headers = new Dictionary<string, string>();
+            headers.Add("Authorization", "Bearer " + _accessToken);
+            headers.Add("Accept", "application/json");
+
+            WWW www = new WWW(_url + Devices, null, headers);
+
+            while (!www.isDone)
+            { }
+
+            if (!string.IsNullOrEmpty(www.error))
+            {
+                Debug.Log("Error during retrieving devices. " + www.error);
+            }
+
+            var root = JSON.Parse(www.text);
+
+            foreach (var group in root.Childs)
+            {
+                Device deviceGroup = new Device
+                {
+                    Name = group["DeviceName"].Value,
+                    Path = group["Path"].Value
+                };
+
+                devices.Add(deviceGroup);
+            }
+
+            return devices.ToArray();
         }
     }
 }
