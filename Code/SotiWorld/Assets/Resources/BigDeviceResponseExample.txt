@@ -1,0 +1,896 @@
+[
+  {
+    "Name": "My Company",
+    "Path": "\\\\My Company",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Management Devices",
+    "Path": "\\\\My Company\\Management Devices",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Sales Devices",
+    "Path": "\\\\My Company\\Sales Devices",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Warehouse Devices",
+    "Path": "\\\\My Company\\Warehouse Devices",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Andrew",
+    "Path": "\\\\Andrew",
+    "Icon": "Blue",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Jonathan",
+    "Path": "\\\\Jonathan",
+    "Icon": "Red",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Management Devices",
+    "Path": "\\\\Jonathan\\Management Devices",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Sales Devices",
+    "Path": "\\\\Jonathan\\Sales Devices",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Warehouse Devices",
+    "Path": "\\\\Jonathan\\Warehouse Devices",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Farah_2",
+    "Path": "\\\\Farah\\Farah_2",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Configurations",
+    "Path": "\\\\Chika\\Configurations",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "FSS",
+    "Path": "\\\\FSS",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Junseong",
+    "Path": "\\\\Junseong",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "virtual Root Group Test",
+    "Path": "\\\\virtual Root Group Test",
+    "Icon": "Green",
+    "Kind": "Virtual"
+  },
+  {
+    "Name": "Sandeep",
+    "Path": "\\\\Sandeep",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "ios zakhar",
+    "Path": "\\\\ios zakhar",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Haseeb",
+    "Path": "\\\\Haseeb",
+    "Icon": "Green",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Kevin",
+    "Path": "\\\\Kevin",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "ChildGroup",
+    "Path": "\\\\RootGroup1\\ChildGroup",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Sergiy",
+    "Path": "\\\\Sergiy",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Mark K",
+    "Path": "\\\\Mark K",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "OT",
+    "Path": "\\\\OT",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "AbTest",
+    "Path": "\\\\AbTest",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "WM",
+    "Path": "\\\\maham\\WM",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Ranjeet",
+    "Path": "\\\\Ranjeet",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Android Generic",
+    "Path": "\\\\Ranjeet\\Android Generic",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "No Profiles",
+    "Path": "\\\\Ranjeet\\No Profiles",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Temp",
+    "Path": "\\\\Ranjeet\\Temp",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Chika",
+    "Path": "\\\\Chika",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "CLEAN",
+    "Path": "\\\\Chika\\CLEAN",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Amy",
+    "Path": "\\\\Amy",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "iPad",
+    "Path": "\\\\iPad",
+    "Icon": "Yellow",
+    "Kind": "Virtual"
+  },
+  {
+    "Name": "ignoreparentgroup",
+    "Path": "\\\\ignoreparentgroup",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Sebin",
+    "Path": "\\\\Sebin",
+    "Icon": "Cyan",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "MikeA",
+    "Path": "\\\\MikeA",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "MikeA-NoAdmin",
+    "Path": "\\\\MikeA-NoAdmin",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "HMT",
+    "Path": "\\\\HMT",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Kirk's Grp",
+    "Path": "\\\\Kirk's Grp",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "RootGroup1",
+    "Path": "\\\\RootGroup1",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "RootGroup2",
+    "Path": "\\\\RootGroup2",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "maham",
+    "Path": "\\\\maham",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Sebin-Admin",
+    "Path": "\\\\Sebin-Admin",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "ignore",
+    "Path": "\\\\ignoreparentgroup\\ignore",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Nav",
+    "Path": "\\\\Nav",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Comp",
+    "Path": "\\\\Junseong\\Comp",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Shaun",
+    "Path": "\\\\Shaun",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Gevorg",
+    "Path": "\\\\Gevorg",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Andrew Virtual Group",
+    "Path": "\\\\Andrew Virtual Group",
+    "Icon": "Cyan",
+    "Kind": "Virtual"
+  },
+  {
+    "Name": "AlexN",
+    "Path": "\\\\AlexN",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Group1",
+    "Path": "\\\\Shaun\\Group1",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Tarandeep",
+    "Path": "\\\\Tarandeep",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "New Group Created Thu 19 Nov 2015 21:36:23 GMT",
+    "Path": "\\\\=^_^=\\New Group Created Thu 19 Nov 2015 21:36:23 GMT",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Test Lau rule3",
+    "Path": "\\\\Test Lau rule3",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Webfilter android generic",
+    "Path": "\\\\maham\\Webfilter android generic",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "ASrav_GA1",
+    "Path": "\\\\ASrav_GA\\ASrav_GA1",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "w10_vpnv2_desktop",
+    "Path": "\\\\w10_vpnv2_desktop",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Nischal",
+    "Path": "\\\\Nischal",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "test v 1114",
+    "Path": "\\\\My Company\\test v 1114",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "New Virtual Group iOS",
+    "Path": "\\\\My Company\\New Virtual Group iOS",
+    "Icon": "Yellow",
+    "Kind": "Virtual"
+  },
+  {
+    "Name": "--- DO NOT USE ---",
+    "Path": "\\\\--- DO NOT USE ---",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "New Group Created Thu 26 Nov 2015 15:28:48 GMT",
+    "Path": "\\\\FSS\\New Group Created Thu 26 Nov 2015 15:28:48 GMT",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Authentication",
+    "Path": "\\\\Automation\\Authentication",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Steve-Test",
+    "Path": "\\\\Steve-Test",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "LDAP Groups as Virtual Group Filter Criteria (Manual)",
+    "Path": "\\\\Richard\\LDAP Groups as Virtual Group Filter Criteria (Manual)",
+    "Icon": "Yellow",
+    "Kind": "Virtual"
+  },
+  {
+    "Name": "Test Lau rule2",
+    "Path": "\\\\Test Lau rule2",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "WM honeywell",
+    "Path": "\\\\maham\\WM honeywell",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Test",
+    "Path": "\\\\My Company\\Test",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Moar Sub Groups",
+    "Path": "\\\\Andrew\\Moar Sub Groups",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "None",
+    "Path": "\\\\None",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "None1",
+    "Path": "\\\\None\\None1",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "RootG2",
+    "Path": "\\\\RootG2",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Tony",
+    "Path": "\\\\Tony",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "German Test",
+    "Path": "\\\\German Test",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "WinCE",
+    "Path": "\\\\Shaun\\WinCE",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Fake Devices",
+    "Path": "\\\\Andrew\\Fake Devices",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Windows Phone",
+    "Path": "\\\\Ranjeet\\Windows Phone",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Katha",
+    "Path": "\\\\Katha",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Nice group name ^_^",
+    "Path": "\\\\=^_^=\\Nice group name ^_^",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "amit p",
+    "Path": "\\\\amit p",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "=^_^=",
+    "Path": "\\\\=^_^=",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "SP-A",
+    "Path": "\\\\Sergiy\\SP-A",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "SP-B",
+    "Path": "\\\\Sergiy\\SP-B",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "_Win10_Azure",
+    "Path": "\\\\_Win10_Azure",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "_Win10_LDAP",
+    "Path": "\\\\_Win10_LDAP",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "ChildGroup",
+    "Path": "\\\\RootG2\\ChildGroup",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "SP-Ldap",
+    "Path": "\\\\Sergiy\\SP-Ldap",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "iOS devices",
+    "Path": "\\\\Tony\\iOS devices",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Dump",
+    "Path": "\\\\Tony\\Dump",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Raysa",
+    "Path": "\\\\Raysa",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "ASrav_GA",
+    "Path": "\\\\ASrav_GA",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Farah",
+    "Path": "\\\\Farah",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Abhi WM",
+    "Path": "\\\\Abhi WM",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Amy1",
+    "Path": "\\\\Amy1",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "New Group Created Mon 23 Nov 2015 21:00:07 GMT",
+    "Path": "\\\\Abhi AFW\\New Group Created Mon 23 Nov 2015 21:00:07 GMT",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "LockDown",
+    "Path": "\\\\Abhi WM\\LockDown",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "(・ω・)つθ",
+    "Path": "\\\\=^_^=\\(・ω・)つθ",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Generic",
+    "Path": "\\\\Shaun\\Generic",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Anti virus and Webfilter",
+    "Path": "\\\\My Company\\Anti virus and Webfilter",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Rules",
+    "Path": "\\\\Rules",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Sasi",
+    "Path": "\\\\Sasi",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Plus",
+    "Path": "\\\\Sasi\\Sasi_Test\\Plus",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Generic",
+    "Path": "\\\\Sasi\\Sasi_Test\\Generic",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "ActLockBypass",
+    "Path": "\\\\My Company\\ActLockBypass",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "WindowsDesktop",
+    "Path": "\\\\Shaun\\WindowsDesktop",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Jan",
+    "Path": "\\\\Jan",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "RootG1",
+    "Path": "\\\\RootG2\\RootG1",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Both filters Android",
+    "Path": "\\\\maham\\Both filters Android",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "zzVitalii",
+    "Path": "\\\\zzVitalii",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Virtual Group Tiger Test - DeveloperTeam",
+    "Path": "\\\\Virtual Group Tiger Test - DeveloperTeam",
+    "Icon": "Yellow",
+    "Kind": "Virtual"
+  },
+  {
+    "Name": "iOS",
+    "Path": "\\\\Kirk's Grp\\iOS",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Tiger Test Lau",
+    "Path": "\\\\My Company\\Tiger Test Lau",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Test Lau rule11",
+    "Path": "\\\\Test Lau rule11",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Hank",
+    "Path": "\\\\My Company\\Hank",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Test Lau rule22",
+    "Path": "\\\\Test Lau rule22",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "New Group Created Mon 23 Nov 2015 21:00:19 GMT",
+    "Path": "\\\\New Group Created Mon 23 Nov 2015 21:00:19 GMT",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Virtual Group Tiger Test Lau",
+    "Path": "\\\\My Company\\Virtual Group Tiger Test Lau",
+    "Icon": "Purple",
+    "Kind": "Virtual"
+  },
+  {
+    "Name": "test2",
+    "Path": "\\\\Vimal\\test2",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Abhi AFW",
+    "Path": "\\\\Abhi AFW",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "iOS Virtual Group",
+    "Path": "\\\\iOS Virtual Group",
+    "Icon": "Purple",
+    "Kind": "Virtual"
+  },
+  {
+    "Name": "Jeff",
+    "Path": "\\\\Jeff",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "test",
+    "Path": "\\\\test",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Test Lau rule1",
+    "Path": "\\\\Test Lau rule1",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Webfilter only",
+    "Path": "\\\\My Company\\Webfilter only",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "New Group Created Mon 23 Nov 2015 21:12:31 GMT",
+    "Path": "\\\\New Group Created Mon 23 Nov 2015 21:12:31 GMT",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Antivirus android generic",
+    "Path": "\\\\maham\\Antivirus android generic",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Automation",
+    "Path": "\\\\Automation",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Windows Desktop",
+    "Path": "\\\\Ranjeet\\Windows Desktop",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "_Win8_Phone_LDAP",
+    "Path": "\\\\_Win8_Phone_LDAP",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Jan2",
+    "Path": "\\\\Jan2",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Yulia - Printers",
+    "Path": "\\\\Yulia - Printers",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Test v",
+    "Path": "\\\\My Company\\Test v",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Antivirus only",
+    "Path": "\\\\My Company\\Antivirus only",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Rules2",
+    "Path": "\\\\Rules\\Rules2",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "OEM Testing Root Directing",
+    "Path": "\\\\OEM Testing Root Directing",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Wesley",
+    "Path": "\\\\Wesley",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Richard",
+    "Path": "\\\\Richard",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "__ofedo",
+    "Path": "\\\\__ofedo",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "ActLockSubgroup",
+    "Path": "\\\\My Company\\ActLockBypass\\ActLockSubgroup",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Group2",
+    "Path": "\\\\Shaun\\Group2",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "ヾ(⌐■_■)ノ♪",
+    "Path": "\\\\=^_^=\\ヾ(⌐■_■)ノ♪",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Sasi_Test",
+    "Path": "\\\\Sasi\\Sasi_Test",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "VirtualGroup",
+    "Path": "\\\\Sasi\\Sasi_Test\\VirtualGroup",
+    "Icon": "Purple",
+    "Kind": "Virtual"
+  },
+  {
+    "Name": "Vimal",
+    "Path": "\\\\Vimal",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Test 1123",
+    "Path": "\\\\Vimal\\Test 1123",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Abtestafw",
+    "Path": "\\\\Abtestafw",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Storage",
+    "Path": "\\\\Junseong\\Storage",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "(╯°□°)╯︵ ┻━┻",
+    "Path": "\\\\=^_^=\\(╯°□°)╯︵ ┻━┻",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Mac OS X",
+    "Path": "\\\\Andrew\\Mac OS X",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  },
+  {
+    "Name": "Ray",
+    "Path": "\\\\Ray",
+    "Icon": "Yellow",
+    "Kind": "Regular"
+  }
+]

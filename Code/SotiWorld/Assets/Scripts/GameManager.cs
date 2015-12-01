@@ -9,8 +9,20 @@ using Assets.Scripts;
 using Assets.Scripts.Integration;
 using Assets.Scripts.LabyrinthGeneration;
 
-public class GameManager : MonoBehaviour {
-        public GameObject character;
+public class GameManager : MonoBehaviour
+{
+    private const string ClientSecret = "ClientSecret";
+
+    private const string OwlUrl = "https://owl.corp.soti.net/mobicontrol/api";
+    private const string OwlClientId = "48c28dd54368439886ab7663389d087c";
+
+    private const string CaimanUrl = "https://caiman.corp.soti.net/mobicontrol/api";
+    private const string CaimanClientId = "48c28dd54368439886ab7663389d087c";
+
+    private const string TestEnvironmentUrl = "https://qa-ms7e64-nav.sotiqa.com/MobiControl/api";
+    private const string TestEnvironmentClientId = "910f8093e02f44958f47b984ca1e6a5e";
+
+    public GameObject character;
 
 	// Use this for initialization
 	void Start () {
@@ -24,19 +36,14 @@ public class GameManager : MonoBehaviour {
 
     private void BuildMaze()
     {
-//        PublicApiGateway gateway = new PublicApiGateway("https://owl.corp.soti.net/mobicontrol/api", "48c28dd54368439886ab7663389d087c", "ClientSecret");
-//        gateway.Login("Administrator", "1");
-//
-//        var deviceGroups = gateway.GetDeviceGroups();
+        //PublicApiGateway gateway = new PublicApiGateway(OwlUrl, OwlClientId, ClientSecret);
 
         PublicApiGatewayMock gateway = new PublicApiGatewayMock();
+        gateway.Login("Administrator", "1");
 
         var deviceGroups = gateway.GetDeviceGroups();
-        var devices = gateway.GetDevices();
 
         string map = MapGenerator.GenerateMap(deviceGroups);
-
-        //TextAsset worldMapData = Resources.Load("WorldMap") as TextAsset;
 
         string[] worldMapLines = map.Split(new[] { "\r\n" }, StringSplitOptions.None);
 

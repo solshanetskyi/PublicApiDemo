@@ -135,6 +135,7 @@
     <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Resources\BigDeviceResponseExample.txt" />
     <None Include="Assets\Resources\GetDevicesResponse.txt" />
     <None Include="Assets\Resources\GetGroupsResponse.txt" />
     <None Include="Assets\Resources\WorldMap.txt" />

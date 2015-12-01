@@ -15,6 +15,7 @@ namespace Assets.Scripts.Integration
             List<DeviceGroup> deviceGroups = new List<DeviceGroup>();
 
             TextAsset groupsResponse = Resources.Load("GetGroupsResponse") as TextAsset;
+            //TextAsset groupsResponse = Resources.Load("BigDeviceResponseExample") as TextAsset;
 
             var root = JSON.Parse(groupsResponse.text);
 
