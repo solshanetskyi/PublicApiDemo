@@ -6,6 +6,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using Assets.Scripts;
+using Assets.Scripts.Integration;
 
 public class GameManager : MonoBehaviour {
         public GameObject character;
@@ -22,6 +23,11 @@ public class GameManager : MonoBehaviour {
 
     private void BuildMaze()
     {
+//        PublicApiGateway gateway = new PublicApiGateway("https://owl.corp.soti.net/mobicontrol/api", "48c28dd54368439886ab7663389d087c", "ClientSecret");
+//        gateway.Login("Administrator", "1");
+//
+//        var deviceGroups = gateway.GetDeviceGroups();
+
         TextAsset worldMapData = Resources.Load("WorldMap") as TextAsset;
         string[] worldMapLines = worldMapData.text.Split(new[] { "\r\n" }, StringSplitOptions.None);
 

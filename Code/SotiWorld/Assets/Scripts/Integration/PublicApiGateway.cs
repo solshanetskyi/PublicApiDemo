@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SimpleJSON;
 using UnityEngine;
 
 namespace Assets.Scripts.Integration
@@ -11,8 +12,10 @@ namespace Assets.Scripts.Integration
         private readonly string _clientSecret;
 
         private string Token = "/token";
+        private string DeviceGroups = "/devicegroups";
+        private string Devices = "/devices";
 
-        private WWW _currentOperation = null;
+        private string _accessToken;
 
         public PublicApiGateway(string url, string clientId, string clientSecret)
         {
@@ -21,13 +24,13 @@ namespace Assets.Scripts.Integration
             _clientSecret = clientSecret;
         }
 
-        public void LoginStart()
+        public void Login(string username, string password)
         {
             WWWForm form = new WWWForm();
 
             form.AddField("grant_type", "password");
-            form.AddField("username", "Administrator");
-            form.AddField("password", "1");
+            form.AddField("username", username);
+            form.AddField("password", password);
 
             string userNamePassword = string.Format("{0}:{1}", _clientId, _clientSecret);
 
@@ -36,47 +39,56 @@ namespace Assets.Scripts.Integration
             Dictionary<string, string> headers = new Dictionary<string, string>();
             headers.Add("Authorization", "Basic " + System.Convert.ToBase64String(tokenBytes));
 
-//            WWW www = new WWW("https://owl.corp.soti.net/mobicontrol/api/token", form.data, header);
             WWW www = new WWW(_url + Token, form.data, headers);
-            _currentOperation = www;
+
+            while (!www.isDone)
+            {}
+
+            if (!string.IsNullOrEmpty(www.error))
+            {
+                Debug.Log("Error during login operation." + www.error);
+                throw new InvalidOperationException("Error during login operation. " + www.error);
+            }
+
+            var root = SimpleJSON.JSON.Parse(www.text);
+
+            _accessToken =  root["access_token"];
         }
 
-        public bool IsOperationComplete
+        public DeviceGroup[] GetDeviceGroups()
         {
-            get
-            {
-                if (_currentOperation == null)
-                    return true;
+            List<DeviceGroup> deviceGroups = new List<DeviceGroup>();
 
-                return _currentOperation.isDone;
+            Dictionary<string, string> headers = new Dictionary<string, string>();
+            headers.Add("Authorization", "Bearer " + _accessToken);
+            headers.Add("Accept", "application/json");
+
+            WWW www = new WWW(_url + DeviceGroups, null, headers);
+
+            while (!www.isDone)
+            {}
+
+            if (!string.IsNullOrEmpty(www.error))
+            {
+                Debug.Log("Error during retrieving device groups. " + www.error);
             }
+
+            var root = JSON.Parse(www.text);
+
+            foreach (var group in root.Childs)
+            {
+                DeviceGroup deviceGroup = new DeviceGroup
+                {
+                    Name = group["Name"].Value,
+                    Path = group["Path"].Value,
+                    Icon = group["Icon"].Value,
+                    Kind = group["Kind"].Value
+                };
+
+                deviceGroups.Add(deviceGroup);
+            }
+
+            return deviceGroups.ToArray();
         }
-
-        public string LoginEnd()
-        {
-            if (!_currentOperation.isDone)
-            {
-                Debug.Log("Current Operation is not done yet.");
-                throw new InvalidOperationException("Current Operation is not done yet.");
-            }
-
-            if (!string.IsNullOrEmpty(_currentOperation.error))
-            {
-                Debug.Log("Error during login operation.");
-                throw new InvalidOperationException("Error during login operation. " + _currentOperation.error);
-            }
-
-            var root = SimpleJSON.JSON.Parse(_currentOperation.text);
-
-            _currentOperation = null;
-
-            return root["access_code"];
-        }
-    }
-
-    public class DeviceGroup
-    {
-        public string Name { get; set; }
-        public string Path { get; set; }
     }
 }
