@@ -43,46 +43,49 @@ public class GameManager : MonoBehaviour
 
         var deviceGroups = gateway.GetDeviceGroups();
 
-        string map = MapGenerator.GenerateMap(deviceGroups);
+        Matrix labyrinthMatrix = MapGenerator.GenerateMap(deviceGroups);
 
-        string[] worldMapLines = map.Split(new[] { "\r\n" }, StringSplitOptions.None);
+        int width = labyrinthMatrix.Tiles.Max(l => l.Count);
+        int height = labyrinthMatrix.Tiles.Count;
 
-        int width = worldMapLines.Max(l => l.Length);
-        int height = worldMapLines.Length;
         WorldMap worldMap = new WorldMap(width, height);
 
-        for (int y = 0; y < worldMapLines.Length; y++)
+        for (int y = 0; y < labyrinthMatrix.Tiles.Count; y++)
         {
-            for (int x = 0; x < width && x < worldMapLines[y].Length; x++)
+            for (int x = 0; x < width && x < labyrinthMatrix.Tiles[y].Count; x++)
             {
-                switch (worldMapLines[y][x])
+                var tiles = labyrinthMatrix.Tiles[y][x];
+
+                List<ITileObject> tileObjects = new List<ITileObject>();
+
+                foreach (Tile tile in tiles)
                 {
-                    case 'w':
+                    if (tile.TileType == TileType.Wall)
+                    {
                         worldMap.SetTileObjects(x, y, new WallSection());
-                        break;
-                    case ' ':
+                    }
+                    else if (tile.TileType == TileType.Floor)
+                    {
                         worldMap.SetTileObjects(x, y, new FloorSection());
-                        break;
-                    case 'd':
-                        worldMap.SetTileObjects(x, y, new DoorFragment(), new FloorSection());
-                        break;
+                    }
+                    else if (tile.TileType == TileType.Door)
+                    {
+                        worldMap.SetTileObjects(x, y, new DoorFragment());
+                    }
+                    else if (tile.TileType == TileType.Text)
+                    {
+                        worldMap.AddTileObjects(x, y, new TextObject(tile.Text)
+                        {
+                            Orientation = TextOrientation.South,
+                            Altitute = 5
+                        });
+                    }
                 }
             }
         }
 
-        worldMap.AddTileObjects(8, 59, new TextObject("Olshanetskyi!")
-        {
-            Orientation = TextOrientation.South
-        });
-
-        worldMap.AddTileObjects(4, 60, new TextObject("Добро пожаловать!")
-        {
-            Orientation = TextOrientation.West,
-            Altitute = 3
-        });
-
         worldMap.Render();
 
-        character.transform.position = new Vector3(1.5f, 0, 1.5f);
+        character.transform.position = new Vector3(width/2 + 6, 0, 3f);
     }
 }

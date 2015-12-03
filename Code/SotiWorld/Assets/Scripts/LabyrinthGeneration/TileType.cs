@@ -4,6 +4,8 @@ namespace Assets.Scripts.LabyrinthGeneration
     {
         None,
         Wall,
-        Door
+        Door,
+        Floor,
+        Text
     }
 }

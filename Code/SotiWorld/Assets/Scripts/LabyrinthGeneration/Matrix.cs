@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Assets.Scripts.LabyrinthGeneration
@@ -8,28 +9,28 @@ namespace Assets.Scripts.LabyrinthGeneration
     {
         public Matrix()
         {
-            this._tiles = new List<List<Tile>>();
+            this._tiles = new List<List<List<Tile>>>();
         }
 
         public Matrix(int width, int height)
         {
-            this._tiles = new List<List<Tile>>();
+            this._tiles = new List<List<List<Tile>>>();
 
             for (int i = 0; i < width; i++)
             {
-                var list = new List<Tile>();
-                this._tiles.Add(list);
+                var doubleList = new List<List<Tile>>();
+                _tiles.Add(doubleList);
 
                 for (int j = 0; j < height; j++)
                 {
-                    this._tiles[i].Add(new Tile(TileType.None));
+                    doubleList.Add(new List<Tile>() {new Tile(TileType.Floor)});
                 }
             }
         }
 
-        private List<List<Tile>> _tiles;
+        private List<List<List<Tile>>> _tiles;
 
-        public List<List<Tile>> Tiles
+        public List<List<List<Tile>>> Tiles
         {
             get
             {
@@ -43,7 +44,7 @@ namespace Assets.Scripts.LabyrinthGeneration
             {
                 for (int j = 0; j < this._tiles[i].Count; j++)
                 {
-                    switch (this._tiles[i][j].TileType)
+                    switch (this._tiles[i][j][0].TileType)
                     {
                         case TileType.None:
                             Console.Write(" ");
@@ -71,7 +72,7 @@ namespace Assets.Scripts.LabyrinthGeneration
             {
                 for (int j = 0; j < this._tiles[i].Count; j++)
                 {
-                    switch (this._tiles[i][j].TileType)
+                    switch (this._tiles[i][j][0].TileType)
                     {
                         case TileType.None:
                             stringBuilder.Append(" ");
@@ -99,11 +100,19 @@ namespace Assets.Scripts.LabyrinthGeneration
             {
                 for (int j = 0; j < matrix.Tiles[i].Count; j++)
                 {
-                    if (matrix.Tiles[i][j].TileType != TileType.None)
-                        this.Tiles[i + x][j + y] = matrix.Tiles[i][j];
+                    if (matrix.Tiles[i][j].Count > 0)
+                    {
+                        Tiles[i + x][j + y].AddRange(matrix.Tiles[i][j]);
+
+                        bool hasDoors = Tiles[i + x][j + y].Any(t => t.TileType == TileType.Door);
+
+                        if (hasDoors)
+                        {
+                            Tiles[i + x][j + y].RemoveAll(t => t.TileType == TileType.Wall);
+                        }
+                    }
                 }
             }
-            
         }
     }
 }

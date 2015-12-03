@@ -5,24 +5,27 @@ namespace Assets.Scripts.LabyrinthGeneration
 {
     public class Node
     {
+        private string _path;
         private string _name;
 
-        public Node(string name)
+        public Node(string path, string name)
         {
+            _path = path;
             _name = name;
+
             Nodes = new List<Node>();
         }
 
-        public Node(Node parent, string name) : this(name)
+        public Node(Node parent, string path, string name) : this(path, name)
         {
             Parent = parent;
         }
 
         public List<Node> Nodes { get; private set; }
 
-        public string Name
+        public string Path
         {
-            get { return _name; }
+            get { return _path; }
         }
 
         public int Level
@@ -43,6 +46,11 @@ namespace Assets.Scripts.LabyrinthGeneration
         }
 
         public Node Parent { get; private set; }
+
+        public string Name
+        {
+            get { return _name; }
+        }
 
         public int GetSize()
         {

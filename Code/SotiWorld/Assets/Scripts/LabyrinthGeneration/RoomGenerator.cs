@@ -47,7 +47,7 @@ namespace Assets.Scripts.LabyrinthGeneration
 
                     currentParent = group.Parent;
 
-                    Room room = new Room(group.GetSize());
+                    Room room = new Room(group.GetSize(), group.Name);
 
                     var parentOffset = 0;
 

@@ -7,9 +7,9 @@ namespace Assets.Scripts.LabyrinthGeneration
 {
     public static class MapGenerator
     {
-        public static string GenerateMap(DeviceGroup[] deviceGroups)
+        public static Matrix GenerateMap(DeviceGroup[] deviceGroups)
         {
-            Node rootNode = new Node("Default");
+            Node rootNode = new Node("Default", "");
 
             DeviceGroup[] orderedDeviceGroups = deviceGroups.OrderBy(g => g.Level).ToArray();
 
@@ -23,7 +23,7 @@ namespace Assets.Scripts.LabyrinthGeneration
 
             Matrix matrix = RoomGenerator.Generate(rootNode);
 
-            return matrix.AsString();
+            return matrix;
         }
 
         private static void AddGroup(Node topNode, DeviceGroup deviceGroup, List<Node> processedNodes)
@@ -34,7 +34,7 @@ namespace Assets.Scripts.LabyrinthGeneration
 
             if (paths.Length == 1)
             {
-                groupNode = new Node(topNode, deviceGroup.Path);
+                groupNode = new Node(topNode, deviceGroup.Path, deviceGroup.Name);
 
                 topNode.Nodes.Add(groupNode);
                 processedNodes.Add(groupNode);
@@ -45,9 +45,9 @@ namespace Assets.Scripts.LabyrinthGeneration
 
             string parentPath = deviceGroup.Path.Remove(indexOfName);
 
-            Node parentNode = processedNodes.Single(n => n.Name == parentPath);
+            Node parentNode = processedNodes.Single(n => n.Path == parentPath);
 
-            groupNode = new Node(parentNode, deviceGroup.Path);
+            groupNode = new Node(parentNode, deviceGroup.Path, deviceGroup.Name);
 
             parentNode.Nodes.Add(groupNode);
             processedNodes.Add(groupNode);
