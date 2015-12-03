@@ -7,6 +7,6 @@ namespace Assets.Scripts.LabyrinthGeneration
         public const int DefaultWidth = 5 * Settings.Scale;
         public const int DefaultHeight = 5 * Settings.Scale;
 
-        public const int RoomCoridorLenght = 4 * Settings.Scale;
+        public const int RoomCoridorLenght = 5 * Settings.Scale;
     }
 }

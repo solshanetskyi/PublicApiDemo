@@ -62,30 +62,32 @@ public class GameManager : MonoBehaviour
                 {
                     if (tile.TileType == TileType.Wall)
                     {
-                        worldMap.SetTileObjects(x, y, new WallSection());
+                        tileObjects.Add(new WallSection());
                     }
                     else if (tile.TileType == TileType.Floor)
                     {
-                        worldMap.SetTileObjects(x, y, new FloorSection());
+                        tileObjects.Add(new FloorSection());
                     }
                     else if (tile.TileType == TileType.Door)
                     {
-                        worldMap.SetTileObjects(x, y, new DoorFragment());
+                        tileObjects.Add(new DoorFragment());
                     }
                     else if (tile.TileType == TileType.Text)
                     {
-                        worldMap.AddTileObjects(x, y, new TextObject(tile.Text)
+                        tileObjects.Add(new TextObject(tile.Text)
                         {
                             Orientation = TextOrientation.South,
                             Altitute = 5
                         });
                     }
+
+                    worldMap.SetTileObjects(x, y, tileObjects.ToArray());
                 }
             }
         }
 
         worldMap.Render();
 
-        character.transform.position = new Vector3(width/2 + 6, 0, 3f);
+        character.transform.position = new Vector3(width/2 + 6, 0, 0);
     }
 }

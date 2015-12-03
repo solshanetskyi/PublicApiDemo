@@ -29,7 +29,7 @@ namespace Assets.Scripts.LabyrinthGeneration
                         _matrix.Tiles[i][j].Add(new Tile(TileType.Wall));
                     }
 
-                    if ((j == 0 || j == Settings.RoomCoridorLenght) && i > firstEntranceWall && i < secondEntranceWall)
+                    if (j >= 0 && j <= Settings.RoomCoridorLenght && i > firstEntranceWall && i < secondEntranceWall)
                     {
                         _matrix.Tiles[i][j].Add(new Tile(TileType.Door));
                     }
@@ -39,7 +39,7 @@ namespace Assets.Scripts.LabyrinthGeneration
                         _matrix.Tiles[i][j].Add(new Tile(TileType.Wall));
                     }
 
-                    if (i == doorCenter && j == Settings.RoomCoridorLenght)
+                    if (i == doorCenter && j == 0)
                     {
                         var tile = new Tile(TileType.Text);
                         tile.Text = _name;

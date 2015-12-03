@@ -23,6 +23,13 @@ namespace Assets.Scripts.LabyrinthGeneration
 
             Matrix matrix = RoomGenerator.Generate(rootNode);
 
+            //Removing door from the first row
+
+            foreach (List<List<Tile>> tiles in matrix.Tiles)
+            {
+                tiles[0].RemoveAll(t => t.TileType == TileType.Door);
+            }
+
             return matrix;
         }
 
