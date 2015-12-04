@@ -9,13 +9,27 @@ namespace Assets.Scripts
 {
     internal class TextObject : ITileObject
     {
-        private static readonly GameObject Prefab = Resources.Load<GameObject>("Text");
+        private static readonly Dictionary<TextColor, Material> Materials = new Dictionary<TextColor, Material>();  
 
+        private static readonly GameObject Prefab = Resources.Load<GameObject>("Text");
+        
         public string Text { get; set; }
 
         public TextOrientation Orientation { get; set; }
 
+        public TextColor TextColor { get; set; }
+
         public int Altitute { get; set; }
+
+        static TextObject()
+        {
+            Materials.Add(TextColor.Red, Resources.Load<Material>("RedText"));
+            Materials.Add(TextColor.Green, Resources.Load<Material>("GreenText"));
+            Materials.Add(TextColor.Blue, Resources.Load<Material>("BlueText"));
+            Materials.Add(TextColor.Yellow, Resources.Load<Material>("YellowText"));
+            Materials.Add(TextColor.Purple, Resources.Load<Material>("PurpleText"));
+            Materials.Add(TextColor.Cyan, Resources.Load<Material>("CyanText"));
+        }
 
         public TextObject(string text)
         {
@@ -36,6 +50,8 @@ namespace Assets.Scripts
         {
             var gameObject = Object.Instantiate(Prefab, new Vector3(x - 0.5f, y + Altitute - 6.75f, z - 1.01f), Quaternion.identity) as GameObject;
 
+            gameObject.GetComponent<Renderer>().materials = new[] { Materials[TextColor] };
+
             switch (Orientation)
             {
                 case TextOrientation.East:
@@ -49,7 +65,6 @@ namespace Assets.Scripts
                     break;
                 case TextOrientation.West:
                     gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);
-                    gameObject.transform.position = new Vector3(gameObject.transform.position.x + 0.49f, gameObject.transform.position.y, gameObject.transform.position.z);
                     break;
             }
 
