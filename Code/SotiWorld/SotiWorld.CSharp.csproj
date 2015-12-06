@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\CastleGameManager.cs" />
     <Compile Include="Assets\Scripts\DoorFragment.cs" />
     <Compile Include="Assets\Scripts\FloorSection.cs" />
+    <Compile Include="Assets\Scripts\Game.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\ITileObject.cs" />
     <Compile Include="Assets\Scripts\Integration\Device.cs" />
