@@ -6,10 +6,12 @@ namespace Assets.Scripts.LabyrinthGeneration
     {
         private Matrix _matrix;
         private string _name;
+        private string _color;
 
-        public Room(int width, string name)
+        public Room(int width, string name, string color)
         {
             _name = name;
+            _color = color;
 
             this._matrix = new Matrix(width, Settings.DefaultHeight + Settings.RoomCoridorLenght);
 
@@ -43,6 +45,7 @@ namespace Assets.Scripts.LabyrinthGeneration
                     {
                         var tile = new Tile(TileType.Text);
                         tile.Text = _name;
+                        tile.Color = _color;
 
                         _matrix.Tiles[i][j].Add(tile);
                     }

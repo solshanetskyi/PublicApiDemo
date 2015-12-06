@@ -77,7 +77,8 @@ public class GameManager : MonoBehaviour
                         tileObjects.Add(new TextObject(tile.Text)
                         {
                             Orientation = TextOrientation.South,
-                            Altitute = 5
+                            Altitude = 5,
+                            TextColor = GetTextColorFromString(tile.Color)
                         });
                     }
 
@@ -89,5 +90,13 @@ public class GameManager : MonoBehaviour
         worldMap.Render();
 
         character.transform.position = new Vector3(width/2 + 6, 0, 0);
+    }
+
+    private TextColor GetTextColorFromString(string textColorString)
+    {
+        if (!Enum.IsDefined(typeof(TextColor), textColorString))
+            return TextColor.Cyan;
+
+        return (TextColor)Enum.Parse(typeof (TextColor), textColorString);
     }
 }

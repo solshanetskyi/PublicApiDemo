@@ -19,7 +19,7 @@ namespace Assets.Scripts
 
         public TextColor TextColor { get; set; }
 
-        public int Altitute { get; set; }
+        public int Altitude { get; set; }
 
         static TextObject()
         {
@@ -37,18 +37,18 @@ namespace Assets.Scripts
                 throw new ArgumentNullException("text");
 
             Text = text;
-            Altitute = 5;
+            Altitude = 5;
         }
 
         public TextObject()
         {
             Text = "Text";
-            Altitute = 5;
+            Altitude = 5;
         }
 
         public void Render(float x, float y, float z)
         {
-            var gameObject = Object.Instantiate(Prefab, new Vector3(x - 0.5f, y + Altitute - 6.75f, z - 1.01f), Quaternion.identity) as GameObject;
+            var gameObject = Object.Instantiate(Prefab, new Vector3(x - 0.5f, y + Altitude - 6.75f, z - 1.01f), Quaternion.identity) as GameObject;
 
             gameObject.GetComponent<Renderer>().materials = new[] { Materials[TextColor] };
 

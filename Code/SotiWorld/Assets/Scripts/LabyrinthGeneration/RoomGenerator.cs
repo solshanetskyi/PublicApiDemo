@@ -35,7 +35,7 @@ namespace Assets.Scripts.LabyrinthGeneration
             {
                 Node currentParent = null;
 
-                foreach (var group in levelGroup)
+                foreach (Node group in levelGroup)
                 {
                     if (group.Parent != null)
                     {
@@ -47,7 +47,7 @@ namespace Assets.Scripts.LabyrinthGeneration
 
                     currentParent = group.Parent;
 
-                    Room room = new Room(group.GetSize(), group.Name);
+                    Room room = new Room(group.GetSize(), group.Name, group.Color);
 
                     var parentOffset = 0;
 

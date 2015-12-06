@@ -7,16 +7,18 @@ namespace Assets.Scripts.LabyrinthGeneration
     {
         private string _path;
         private string _name;
+        private string _color;
 
-        public Node(string path, string name)
+        public Node(string path, string name, string color)
         {
             _path = path;
             _name = name;
+            _color = color;
 
             Nodes = new List<Node>();
         }
 
-        public Node(Node parent, string path, string name) : this(path, name)
+        public Node(Node parent, string path, string name, string color) : this(path, name, color)
         {
             Parent = parent;
         }
@@ -50,6 +52,11 @@ namespace Assets.Scripts.LabyrinthGeneration
         public string Name
         {
             get { return _name; }
+        }
+
+        public string Color
+        {
+            get { return _color; }
         }
 
         public int GetSize()

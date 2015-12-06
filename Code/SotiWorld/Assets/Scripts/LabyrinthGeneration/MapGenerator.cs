@@ -9,7 +9,7 @@ namespace Assets.Scripts.LabyrinthGeneration
     {
         public static Matrix GenerateMap(DeviceGroup[] deviceGroups)
         {
-            Node rootNode = new Node("Default", "");
+            Node rootNode = new Node("Default", "", "Red");
 
             DeviceGroup[] orderedDeviceGroups = deviceGroups.OrderBy(g => g.Level).ToArray();
 
@@ -41,7 +41,7 @@ namespace Assets.Scripts.LabyrinthGeneration
 
             if (paths.Length == 1)
             {
-                groupNode = new Node(topNode, deviceGroup.Path, deviceGroup.Name);
+                groupNode = new Node(topNode, deviceGroup.Path, deviceGroup.Name, deviceGroup.Icon);
 
                 topNode.Nodes.Add(groupNode);
                 processedNodes.Add(groupNode);
@@ -54,7 +54,7 @@ namespace Assets.Scripts.LabyrinthGeneration
 
             Node parentNode = processedNodes.Single(n => n.Path == parentPath);
 
-            groupNode = new Node(parentNode, deviceGroup.Path, deviceGroup.Name);
+            groupNode = new Node(parentNode, deviceGroup.Path, deviceGroup.Name, deviceGroup.Icon);
 
             parentNode.Nodes.Add(groupNode);
             processedNodes.Add(groupNode);
