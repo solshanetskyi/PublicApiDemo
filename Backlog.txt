@@ -1,7 +1,16 @@
-1. Add Authentication screen.
-2. Skulls in some rooms.
-3. Inventory.
-4. Second floor
-5. Mini-map
-6. Some live creatures
-8. Terminal in the centre of aroom
+MUST
+
+1. Monolithic floor. - OLEG
+2. Monolithic ceiling. - OLEG
+3. Error handling on login - show messsage. ESC - close window. - OLEG
+4. Device action window - OLEG.
+5. Device action implementation - SERGII.
+6. Statistics left bottom corner - OLEG.
+7. Images on the castle - SERGII.
+8. Developers faces on angels - OLEG.
+9. Show group devices in rooms - SERGII
+
+NICE TO HAVE
+
+1. Group renaming
+2. Add more createars.
