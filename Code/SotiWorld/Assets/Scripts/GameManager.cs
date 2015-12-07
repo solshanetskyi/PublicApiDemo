@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
 
         worldMap.Render();
 
-        character.transform.position = new Vector3(width/2 + 6, 0, 0);
+        character.transform.position = new Vector3(width/2 + 6, -5, 0);
     }
 
     private TextColor GetTextColorFromString(string textColorString)

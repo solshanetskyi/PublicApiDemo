@@ -48,7 +48,7 @@ namespace Assets.Scripts
 
         public void Render(float x, float y, float z)
         {
-            var gameObject = Object.Instantiate(Prefab, new Vector3(x - 0.5f, y + Altitude - 6.75f, z - 1.01f), Quaternion.identity) as GameObject;
+            var gameObject = Object.Instantiate(Prefab, new Vector3(x - 0.5f, y + Altitude - 6.75f, z - 1.04f), Quaternion.identity) as GameObject;
 
             gameObject.GetComponent<Renderer>().materials = new[] { Materials[TextColor] };
 
