@@ -36,14 +36,7 @@ public class GameManager : MonoBehaviour
 
     private void BuildMaze()
     {
-        //PublicApiGateway gateway = new PublicApiGateway(OwlUrl, OwlClientId, ClientSecret);
-
-        PublicApiGatewayMock gateway = new PublicApiGatewayMock();
-        gateway.Login("Administrator", "1");
-
-        var deviceGroups = gateway.GetDeviceGroups();
-
-        Matrix labyrinthMatrix = MapGenerator.GenerateMap(deviceGroups);
+        Matrix labyrinthMatrix = Game.LabyrinthMatrix;
 
         int width = labyrinthMatrix.Tiles.Max(l => l.Count);
         int height = labyrinthMatrix.Tiles.Count;
@@ -85,12 +78,16 @@ public class GameManager : MonoBehaviour
                     {
                         tileObjects.Add(new IPhoneObject());
 
-                        tileObjects.Add(new TextObject("Ipad's Sergii")
+                        tileObjects.Add(new TextObject(tile.Text)
                         {
                             Orientation = TextOrientation.East,
                             Altitude = 5.5f,
-                            TextColor = GetTextColorFromString("Cyan")
+                            TextColor = GetTextColorFromString("Yellow")
                         });
+                    }
+                    else if (tile.TileType == TileType.Player)
+                    {
+                        character.transform.position = new Vector3(y, -5, x);
                     }
 
                     worldMap.SetTileObjects(x, y, tileObjects.ToArray());
@@ -99,8 +96,6 @@ public class GameManager : MonoBehaviour
         }
 
         worldMap.Render();
-
-        character.transform.position = new Vector3(width/2 + 6, -5, 0);
     }
 
     private TextColor GetTextColorFromString(string textColorString)

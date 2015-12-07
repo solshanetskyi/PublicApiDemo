@@ -7,6 +7,7 @@ namespace Assets.Scripts.LabyrinthGeneration
         Door,
         Floor,
         Text,
-        Iphone
+        Iphone,
+        Player
     }
 }

@@ -25,7 +25,7 @@ namespace Assets.Scripts
             get
             {
                 if (_labyrinthMatrix == null)
-                    throw new InvalidOperationException("Labyrinth has not been generated yet");
+                    GenerateLabyrinth(new PublicApiGatewayMock());
 
                 return _labyrinthMatrix;
             }

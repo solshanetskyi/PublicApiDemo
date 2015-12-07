@@ -22,12 +22,17 @@ namespace Assets.Scripts.LabyrinthGeneration
             }
 
             Matrix matrix = RoomGenerator.Generate(rootNode);
+            
+            matrix.Tiles[matrix.Tiles.Count/2][3].Add(new Tile(TileType.Player));
 
-            //Removing door from the first row
-
-            foreach (List<List<Tile>> tiles in matrix.Tiles)
+            //Closing the front door
+            foreach (var tiles in matrix.Tiles)
             {
-                tiles[0].RemoveAll(t => t.TileType == TileType.Door);
+                if (tiles[0].Any(t => t.TileType == TileType.Door))
+                {
+                    tiles[0].RemoveAll(t => t.TileType == TileType.Door);
+                    tiles[0].Add(new Tile(TileType.Wall));
+                }
             }
 
             return matrix;
