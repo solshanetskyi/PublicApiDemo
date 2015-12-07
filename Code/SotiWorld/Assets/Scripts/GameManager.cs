@@ -84,6 +84,13 @@ public class GameManager : MonoBehaviour
                     else if (tile.TileType == TileType.Iphone)
                     {
                         tileObjects.Add(new IPhoneObject());
+
+                        tileObjects.Add(new TextObject("Ipad's Sergii")
+                        {
+                            Orientation = TextOrientation.East,
+                            Altitude = 5.5f,
+                            TextColor = GetTextColorFromString("Cyan")
+                        });
                     }
 
                     worldMap.SetTileObjects(x, y, tileObjects.ToArray());

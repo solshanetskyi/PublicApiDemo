@@ -19,7 +19,7 @@ namespace Assets.Scripts
 
         public TextColor TextColor { get; set; }
 
-        public int Altitude { get; set; }
+        public float Altitude { get; set; }
 
         static TextObject()
         {
@@ -56,6 +56,7 @@ namespace Assets.Scripts
             {
                 case TextOrientation.East:
                     gameObject.transform.rotation = Quaternion.Euler(0, 270, 0);
+                    gameObject.transform.Translate(0.6f, 0, 0, Space.World);
                     break;
                 case TextOrientation.South:
                     gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
