@@ -81,6 +81,10 @@ public class GameManager : MonoBehaviour
                             TextColor = GetTextColorFromString(tile.Color)
                         });
                     }
+                    else if (tile.TileType == TileType.Iphone)
+                    {
+                        tileObjects.Add(new IPhoneObject());
+                    }
 
                     worldMap.SetTileObjects(x, y, tileObjects.ToArray());
                 }

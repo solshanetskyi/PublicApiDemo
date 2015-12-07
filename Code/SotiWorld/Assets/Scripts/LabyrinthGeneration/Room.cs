@@ -50,6 +50,11 @@ namespace Assets.Scripts.LabyrinthGeneration
                         _matrix.Tiles[i][j].Add(tile);
                     }
 
+                    if (i == 0 && j == (_matrix.Tiles[i].Count - Settings.RoomCoridorLenght) / 2 + Settings.RoomCoridorLenght)
+                    {
+                        _matrix.Tiles[i][j].Add(new Tile(TileType.Iphone));
+                    }
+
                     bool hasWalls = _matrix.Tiles[i][j].Any(t => t.TileType == TileType.Wall);
 
                     if (!hasWalls)

@@ -6,6 +6,7 @@ namespace Assets.Scripts.LabyrinthGeneration
         Wall,
         Door,
         Floor,
-        Text
+        Text,
+        Iphone
     }
 }
