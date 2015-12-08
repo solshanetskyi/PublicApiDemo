@@ -30,10 +30,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Restart()
+    public void RestartLevel()
     {
         Time.timeScale = 1;
         Application.LoadLevel(Application.loadedLevelName);
+    }
+
+    public void NewGame()
+    {
+        Time.timeScale = 1;
+        Application.LoadLevel("Castle");
     }
 
     public void ExitGame()
