@@ -13,7 +13,7 @@ namespace Assets.Scripts
 
         public void Render(float x, float y, float z)
         {
-            Object.Instantiate(Prefab, new Vector3(x - Prefab.transform.localScale.x * 10 / 2, y - Prefab.transform.localScale.y * 10 / 2 - 5.5f, z - Prefab.transform.localScale.z * 10 / 2), Quaternion.identity);
+            // Object.Instantiate(Prefab, new Vector3(x - Prefab.transform.localScale.x * 10 / 2, y - Prefab.transform.localScale.y * 10 / 2 - 5.5f, z - Prefab.transform.localScale.z * 10 / 2), Quaternion.identity);
         }
     }
 }

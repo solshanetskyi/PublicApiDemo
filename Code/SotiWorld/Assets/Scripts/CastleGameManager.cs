@@ -4,7 +4,6 @@ using System.Collections;
 using System.Globalization;
 using Assets.Scripts;
 using Assets.Scripts.Integration;
-using UnityEditor;
 using UnityEngine.UI;
 
 public class CastleGameManager : MonoBehaviour
@@ -67,7 +66,7 @@ public class CastleGameManager : MonoBehaviour
 
     private void DenyMazeAccess(string reason)
     {
-        EditorUtility.DisplayDialog("Access to the maze denied!", reason, "Ok");
-        Restartlevel();
+        var errorText = GameObject.Find("ErrorText").GetComponent<Text>();
+        errorText.text = reason;
     }
 }

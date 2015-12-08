@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Assets.Scripts
 {
@@ -60,6 +62,15 @@ namespace Assets.Scripts
 
         public void Render()
         {
+            var material = (Material)Resources.Load("Materials/Floor");
+            material.SetTextureScale("Repeat", new Vector2(Height, Width));
+            material.SetTextureScale("_MainTex", new Vector2(Height, Width));
+
+            var floorPrefab = Resources.Load<GameObject>("FloorSection");
+            
+            var floor = (GameObject)Object.Instantiate(floorPrefab, new Vector3((float)Height / 2, -6, (float)Width / 2), Quaternion.identity);
+            floor.transform.localScale = new Vector3(Height + 0.5f, 1, Width + 0.5f);
+           
             for (int i = 0; i < Width; i++)
             {
                 for (int j = 0; j < Height; j++)
