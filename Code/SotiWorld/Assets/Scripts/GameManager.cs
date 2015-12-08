@@ -8,20 +8,10 @@ using System.Linq;
 using Assets.Scripts;
 using Assets.Scripts.Integration;
 using Assets.Scripts.LabyrinthGeneration;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private const string ClientSecret = "ClientSecret";
-
-    private const string OwlUrl = "https://owl.corp.soti.net/mobicontrol/api";
-    private const string OwlClientId = "48c28dd54368439886ab7663389d087c";
-
-    private const string CaimanUrl = "https://caiman.corp.soti.net/mobicontrol/api";
-    private const string CaimanClientId = "48c28dd54368439886ab7663389d087c";
-
-    private const string TestEnvironmentUrl = "https://qa-ms7e64-nav.sotiqa.com/MobiControl/api";
-    private const string TestEnvironmentClientId = "910f8093e02f44958f47b984ca1e6a5e";
-
     public GameObject character;
 
 	// Use this for initialization
@@ -95,7 +85,17 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        UpdateStatistics();
         worldMap.Render();
+    }
+
+    private void UpdateStatistics()
+    {
+        var totalGroupsLabel = GameObject.Find("TotalGroups").GetComponent<Text>();
+        var totalDevicesLabel = GameObject.Find("TotalDevices").GetComponent<Text>();
+
+        totalGroupsLabel.text = String.Format("Total Groups: {0}", Game.TotalGroups);
+        totalDevicesLabel.text = String.Format("Total Devices: {0}", Game.TotalDevices);
     }
 
     private TextColor GetTextColorFromString(string textColorString)

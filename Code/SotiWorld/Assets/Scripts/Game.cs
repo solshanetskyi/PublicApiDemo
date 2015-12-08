@@ -11,12 +11,21 @@ namespace Assets.Scripts
     {
         private static Matrix _labyrinthMatrix;
 
+        public static int TotalGroups { get; private set; }
+
+        public static int TotalDevices { get; private set; }
+
         public static void GenerateLabyrinth(IPublicApiGateway publicApiGateway)
         {
             if (publicApiGateway == null)
                 throw new ArgumentNullException("publicApiGateway");
 
             var deviceGroups = publicApiGateway.GetDeviceGroups();
+            var devices = publicApiGateway.GetDevices();
+
+            TotalGroups = deviceGroups.Length;
+            TotalDevices = devices.Length;
+
             _labyrinthMatrix = MapGenerator.GenerateMap(deviceGroups);
         }
 

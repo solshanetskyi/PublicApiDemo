@@ -39,7 +39,7 @@ public class CastleGameManager : MonoBehaviour
             string[] credentialTokens = credentialsTextBox.text.Split(new[] { ":" }, StringSplitOptions.None);
             if (credentialTokens.Length != 4)
             {
-                DenyMazeAccess("Credentials must be in the format userName:password:clientId:clientSecret");
+                ShowMessage("Credentials must be in the format userName:password:clientId:clientSecret");
                 return;
             }
 
@@ -51,12 +51,13 @@ public class CastleGameManager : MonoBehaviour
             publicApiGateway = new PublicApiGateway(instanceUrlText.text, clientId, clientSecret);
             try
             {
+                ShowMessage("Please wait...");
                 publicApiGateway.Login(userName, password);
                 Game.GenerateLabyrinth(publicApiGateway);
             }
             catch (Exception ex)
             {
-                DenyMazeAccess("Failed to retrieve data from MobiControl public API. Make sure that the values you entered are correct.");
+                ShowMessage("Failed to retrieve data from MobiControl public API. Make sure that the values you entered are correct.");
                 return;
             }
         }
@@ -64,7 +65,7 @@ public class CastleGameManager : MonoBehaviour
         Application.LoadLevel("labyrinth");
     }
 
-    private void DenyMazeAccess(string reason)
+    private void ShowMessage(string reason)
     {
         var errorText = GameObject.Find("ErrorText").GetComponent<Text>();
         errorText.text = reason;
