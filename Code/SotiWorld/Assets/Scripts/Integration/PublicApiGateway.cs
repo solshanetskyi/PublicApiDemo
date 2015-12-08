@@ -156,7 +156,7 @@ namespace Assets.Scripts.Integration
             headers.Add("Accept", "application/json");
             headers.Add("Content-Type", "application/json");
 
-            string request = string.Format("{ \"Action\": \"SendMessage\", \"Message\":\"{0}\"}", message);
+            string request = "{ \"Action\": \"SendMessage\", \"Message\":\"{messagetemplate}\"}".Replace("{messagetemplate}", message);
             byte[] requestBytes = System.Text.Encoding.UTF8.GetBytes(request);
 
             WWW www = new WWW(_url + string.Format(DeviceAction, deviceId), requestBytes, headers);

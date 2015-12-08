@@ -56,5 +56,13 @@ namespace Assets.Scripts.Integration
 
             return devices.ToArray();
         }
+
+        public void LockDevice(string deviceId)
+        {
+        }
+
+        public void SendMessageToDevice(string deviceId, string message)
+        {
+        }
     }
 }
