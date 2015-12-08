@@ -131,8 +131,9 @@ namespace Assets.Scripts.Integration
             Dictionary<string, string> headers = new Dictionary<string, string>();
             headers.Add("Authorization", "Bearer " + _accessToken);
             headers.Add("Accept", "application/json");
+            headers.Add("Content-Type", "application/json");
 
-            string request = @"{ 'Action': 'Lock'}";
+            string request = "{ \"Action\": \"Lock\" }";
             byte[] requestBytes = System.Text.Encoding.UTF8.GetBytes(request);
 
             WWW www = new WWW(_url + string.Format(DeviceAction, deviceId), requestBytes, headers);
@@ -153,8 +154,9 @@ namespace Assets.Scripts.Integration
             Dictionary<string, string> headers = new Dictionary<string, string>();
             headers.Add("Authorization", "Bearer " + _accessToken);
             headers.Add("Accept", "application/json");
+            headers.Add("Content-Type", "application/json");
 
-            string request = string.Format("{{ 'Action': 'SendMessage', 'Message':'{0}'}}", message);
+            string request = string.Format("{ \"Action\": \"SendMessage\", \"Message\":\"{0}\"}", message);
             byte[] requestBytes = System.Text.Encoding.UTF8.GetBytes(request);
 
             WWW www = new WWW(_url + string.Format(DeviceAction, deviceId), requestBytes, headers);
