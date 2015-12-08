@@ -1,14 +1,7 @@
 MUST
 
-1. Monolithic floor. - OLEG
-2. Monolithic ceiling. - OLEG
-3. Error handling on login - show messsage. ESC - close window. - OLEG
 4. Device action window - OLEG.
-5. Device action implementation - SERGII.
-6. Statistics left bottom corner - OLEG.
 7. Images on the castle - SERGII.
-8. Developers faces on angels - OLEG.
-9. Show group devices in rooms - SERGII
 
 NICE TO HAVE
 
