@@ -9,6 +9,8 @@ namespace Assets.Scripts.LabyrinthGeneration
         private string _name;
         private string _color;
 
+        private List<DeviceInfo> _deviceInfos;
+
         public Node(string path, string name, string color)
         {
             _path = path;
@@ -16,11 +18,18 @@ namespace Assets.Scripts.LabyrinthGeneration
             _color = color;
 
             Nodes = new List<Node>();
+
+            _deviceInfos = new List<DeviceInfo>();
         }
 
         public Node(Node parent, string path, string name, string color) : this(path, name, color)
         {
             Parent = parent;
+        }
+
+        public void SetDevices(IEnumerable<DeviceInfo> devices)
+        {
+            _deviceInfos.AddRange(devices);
         }
 
         public List<Node> Nodes { get; private set; }
@@ -59,6 +68,11 @@ namespace Assets.Scripts.LabyrinthGeneration
             get { return _color; }
         }
 
+        public List<DeviceInfo> Devices
+        {
+            get { return _deviceInfos; }
+        }
+
         public int GetSize()
         {
             if (Nodes.Count == 0)
@@ -82,5 +96,10 @@ namespace Assets.Scripts.LabyrinthGeneration
 
             return Nodes.Count + Settings.Scale + Settings.DefaultHeight;
         }
+    }
+
+    public class DeviceInfo
+    {
+        public string Name { get; set; }
     }
 }

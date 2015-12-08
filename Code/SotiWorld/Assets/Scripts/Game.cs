@@ -17,7 +17,9 @@ namespace Assets.Scripts
                 throw new ArgumentNullException("publicApiGateway");
 
             var deviceGroups = publicApiGateway.GetDeviceGroups();
-            _labyrinthMatrix = MapGenerator.GenerateMap(deviceGroups);
+            var devices = publicApiGateway.GetDevices();
+
+            _labyrinthMatrix = MapGenerator.GenerateMap(deviceGroups, devices);
         }
 
         public static Matrix LabyrinthMatrix

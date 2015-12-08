@@ -11,11 +11,7 @@ namespace Assets.Scripts.LabyrinthGeneration
             Dictionary<Node, int> offsets = new Dictionary<Node, int>();
 
             int depth = parentNode.GetMaxDepth();
-
             int height = depth * (Settings.DefaultHeight + Settings.RoomCoridorLenght);
-
-            Console.WriteLine("Depth " + depth);
-            Console.WriteLine("Width " + height);
 
             var allNodes = new[] { parentNode }.FancyFlatten(n => true, n => n.Nodes).ToArray();
 
@@ -35,30 +31,30 @@ namespace Assets.Scripts.LabyrinthGeneration
             {
                 Node currentParent = null;
 
-                foreach (Node group in levelGroup)
+                foreach (Node groupNode in levelGroup)
                 {
-                    if (group.Parent != null)
+                    if (groupNode.Parent != null)
                     {
-                        if (currentParent != group.Parent)
+                        if (currentParent != groupNode.Parent)
                         {
                             yOffset = 0;
                         }
                     }
 
-                    currentParent = group.Parent;
+                    currentParent = groupNode.Parent;
 
-                    Room room = new Room(group.GetSize(), group.Name, group.Color);
+                    Room room = new Room(groupNode.GetSize(), groupNode.Name, groupNode.Color, groupNode.Devices);
 
                     var parentOffset = 0;
 
-                    if (group.Parent != null)
-                        parentOffset = offsets[group.Parent];
+                    if (groupNode.Parent != null)
+                        parentOffset = offsets[groupNode.Parent];
 
                     matrix.Merge(room.AsMatrix(), yOffset + parentOffset, xOffset);
 
-                    offsets.Add(group, yOffset + parentOffset);
+                    offsets.Add(groupNode, yOffset + parentOffset);
 
-                    yOffset += group.GetSize() + Settings.Scale;
+                    yOffset += groupNode.GetSize() + Settings.Scale;
                 }
 
                 xOffset += Settings.DefaultHeight + Settings.RoomCoridorLenght - 1;
