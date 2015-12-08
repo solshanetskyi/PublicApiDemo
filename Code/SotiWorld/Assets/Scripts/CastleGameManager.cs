@@ -24,11 +24,6 @@ public class CastleGameManager : MonoBehaviour
             Time.timeScale = mainMenu.activeSelf ? 0 : 1;
         }
     }
-    public void NewGame()
-    {
-        Time.timeScale = 1;
-        Application.LoadLevel("Castle");
-    }
 
     public void RestartLevel()
     {
