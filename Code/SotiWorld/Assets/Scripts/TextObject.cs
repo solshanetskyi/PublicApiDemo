@@ -66,6 +66,7 @@ namespace Assets.Scripts
                     break;
                 case TextOrientation.West:
                     gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);
+                    gameObject.transform.Translate(-1f, 0, 0, Space.World);
                     break;
             }
 

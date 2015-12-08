@@ -12,5 +12,7 @@
         public string Color { get; set; }
 
         public TileType TileType { get; set; }
+
+        public TextOrientation Orientation { get; set; }
     }
 }

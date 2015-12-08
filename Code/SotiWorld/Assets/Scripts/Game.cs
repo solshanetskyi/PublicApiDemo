@@ -26,7 +26,7 @@ namespace Assets.Scripts
             TotalGroups = deviceGroups.Length;
             TotalDevices = devices.Length;
 
-            _labyrinthMatrix = MapGenerator.GenerateMap(deviceGroups);
+            _labyrinthMatrix = MapGenerator.GenerateMap(deviceGroups, devices);
         }
 
         public static Matrix LabyrinthMatrix

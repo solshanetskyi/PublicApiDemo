@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Assets.Scripts.LabyrinthGeneration
@@ -8,7 +10,7 @@ namespace Assets.Scripts.LabyrinthGeneration
         private string _name;
         private string _color;
 
-        public Room(int width, string name, string color)
+        public Room(int width, string name, string color, List<DeviceInfo> deviceInfos)
         {
             _name = name;
             _color = color;
@@ -24,6 +26,7 @@ namespace Assets.Scripts.LabyrinthGeneration
             {
                 for (int j = 0; j < this._matrix.Tiles[i].Count; j++)
                 {
+                    //Drawing a corridor in front of the door entrance
                     if ((i == 0 && j > Settings.RoomCoridorLenght) || j == Settings.RoomCoridorLenght
                         || (i == _matrix.Tiles.Count - 1 && j > Settings.RoomCoridorLenght)
                         || j == _matrix.Tiles[i].Count - 1)
@@ -31,6 +34,7 @@ namespace Assets.Scripts.LabyrinthGeneration
                         _matrix.Tiles[i][j].Add(new Tile(TileType.Wall));
                     }
 
+                    //Drawing door at the start and end of the corridor
                     if (j >= 0 && j <= Settings.RoomCoridorLenght && i > firstEntranceWall && i < secondEntranceWall)
                     {
                         _matrix.Tiles[i][j].Add(new Tile(TileType.Door));
@@ -41,6 +45,7 @@ namespace Assets.Scripts.LabyrinthGeneration
                         _matrix.Tiles[i][j].Add(new Tile(TileType.Wall));
                     }
 
+                    //Room name
                     if (i == doorCenter && j == 0)
                     {
                         var tile = new Tile(TileType.Text);
@@ -48,11 +53,6 @@ namespace Assets.Scripts.LabyrinthGeneration
                         tile.Color = _color;
 
                         _matrix.Tiles[i][j].Add(tile);
-                    }
-
-                    if (i == 0 && j == (_matrix.Tiles[i].Count - Settings.RoomCoridorLenght) / 2 + Settings.RoomCoridorLenght)
-                    {
-                        _matrix.Tiles[i][j].Add(new Tile(TileType.Iphone) {Text = "Device Name"});
                     }
 
                     bool hasWalls = _matrix.Tiles[i][j].Any(t => t.TileType == TileType.Wall);
@@ -63,6 +63,48 @@ namespace Assets.Scripts.LabyrinthGeneration
                     }
                 }
             }
+
+            InstallDevicesOnWall(deviceInfos.Take(deviceInfos.Count /2).ToList(), TextOrientation.East);
+            InstallDevicesOnWall(deviceInfos.Skip(deviceInfos.Count/2).ToList(), TextOrientation.West);
+        }
+
+        private void InstallDevicesOnWall(List<DeviceInfo> deviceInfos, TextOrientation orientation)
+        {
+            if (!deviceInfos.Any())
+                return;
+
+            int xPosition;
+
+            switch (orientation)
+            {
+                case TextOrientation.East:
+                    xPosition = 0;
+                    break;
+                case TextOrientation.West:
+                    xPosition = _matrix.Tiles.Count - 1;
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+
+            int phoneIndex = 0;
+            int phonePosition = 0;
+
+            while (phoneIndex != deviceInfos.Count)
+            {
+                phonePosition = (phoneIndex + 1) * (_matrix.Tiles[xPosition].Count - Settings.RoomCoridorLenght) / (deviceInfos.Count + 1) + Settings.RoomCoridorLenght;
+
+                AddDeviceToWall(xPosition, phonePosition, deviceInfos[phoneIndex].Name, orientation);
+                phoneIndex++;
+            }}
+
+        public void AddDeviceToWall(int x, int y, string name, TextOrientation orientation)
+        {
+            _matrix.Tiles[x][y].Add(new Tile(TileType.Iphone)
+            {
+                Text = name,
+                Orientation = orientation
+            });
         }
 
         public Matrix AsMatrix()

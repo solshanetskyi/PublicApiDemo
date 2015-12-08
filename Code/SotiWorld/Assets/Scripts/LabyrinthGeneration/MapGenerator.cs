@@ -7,7 +7,7 @@ namespace Assets.Scripts.LabyrinthGeneration
 {
     public static class MapGenerator
     {
-        public static Matrix GenerateMap(DeviceGroup[] deviceGroups)
+        public static Matrix GenerateMap(DeviceGroup[] deviceGroups, Device[] devices)
         {
             Node rootNode = new Node("Default", "", "Red");
 
@@ -18,7 +18,7 @@ namespace Assets.Scripts.LabyrinthGeneration
 
             foreach (DeviceGroup deviceGroup in orderedDeviceGroups)
             {
-                AddGroup(rootNode, deviceGroup, nodes);
+                AddGroup(rootNode, deviceGroup, nodes, devices);
             }
 
             Matrix matrix = RoomGenerator.Generate(rootNode);
@@ -38,7 +38,7 @@ namespace Assets.Scripts.LabyrinthGeneration
             return matrix;
         }
 
-        private static void AddGroup(Node topNode, DeviceGroup deviceGroup, List<Node> processedNodes)
+        private static void AddGroup(Node topNode, DeviceGroup deviceGroup, List<Node> processedNodes, Device[] devices)
         {
             string[] paths = deviceGroup.Path.Split(new[] {@"\", @"\\"}, StringSplitOptions.RemoveEmptyEntries);
 
@@ -48,8 +48,14 @@ namespace Assets.Scripts.LabyrinthGeneration
             {
                 groupNode = new Node(topNode, deviceGroup.Path, deviceGroup.Name, deviceGroup.Icon);
 
+                groupNode.SetDevices(devices.Where(d => d.Path == deviceGroup.Path).Select(d => new DeviceInfo
+                {
+                    Name = d.Name
+                }));
+
                 topNode.Nodes.Add(groupNode);
                 processedNodes.Add(groupNode);
+
                 return;
             }
 
@@ -60,6 +66,11 @@ namespace Assets.Scripts.LabyrinthGeneration
             Node parentNode = processedNodes.Single(n => n.Path == parentPath);
 
             groupNode = new Node(parentNode, deviceGroup.Path, deviceGroup.Name, deviceGroup.Icon);
+
+            groupNode.SetDevices(devices.Where(d => d.Path == deviceGroup.Path).Select(d => new DeviceInfo
+            {
+                Name = d.Name
+            }));
 
             parentNode.Nodes.Add(groupNode);
             processedNodes.Add(groupNode);

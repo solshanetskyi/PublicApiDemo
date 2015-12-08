@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Assets.Scripts
 {
@@ -6,11 +8,27 @@ namespace Assets.Scripts
     {
         private static readonly GameObject Prefab = Resources.Load<GameObject>("IPhone");
 
+        public string Text { get; set; }
+
+        public TextOrientation Orientation { get; set; }
+
         public void Render(float x, float y, float z)
         {
-            var gameObject = Object.Instantiate(Prefab, new Vector3(x, -3, z - 1f), Quaternion.identity) as GameObject;
+            GameObject gameObject;
 
-            gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);
+            switch (Orientation)
+            {
+                case TextOrientation.East:
+                    gameObject = Object.Instantiate(Prefab, new Vector3(x, -3, z - 1f), Quaternion.identity) as GameObject;
+                    gameObject.transform.rotation = Quaternion.Euler(0, 90, 0);
+                    break;
+                case TextOrientation.West:
+                    gameObject = Object.Instantiate(Prefab, new Vector3(x-1, -3, z - 1f), Quaternion.identity) as GameObject;
+                    gameObject.transform.rotation = Quaternion.Euler(0, 270, 0);
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
         }
     }
 }
