@@ -1,9 +1,9 @@
 [
   {
-    "DeviceName": "IosSimulator0212",
+    "DeviceName": "IosSimulator0213",
     "Path": "\\\\My Company"
   },
-   {
+  {
     "DeviceName": "IosSimulator0213",
     "Path": "\\\\My Company"
   },

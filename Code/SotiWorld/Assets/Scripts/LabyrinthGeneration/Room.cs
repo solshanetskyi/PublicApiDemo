@@ -64,8 +64,8 @@ namespace Assets.Scripts.LabyrinthGeneration
                 }
             }
 
-            InstallDevicesOnWall(deviceInfos.Take(2).ToList(), TextOrientation.East);
-            InstallDevicesOnWall(deviceInfos.Skip(2).Take(4).ToList(), TextOrientation.West);
+            InstallDevicesOnWall(deviceInfos.Take(deviceInfos.Count /2).ToList(), TextOrientation.East);
+            InstallDevicesOnWall(deviceInfos.Skip(deviceInfos.Count/2).ToList(), TextOrientation.West);
         }
 
         private void InstallDevicesOnWall(List<DeviceInfo> deviceInfos, TextOrientation orientation)
@@ -87,22 +87,16 @@ namespace Assets.Scripts.LabyrinthGeneration
                     throw new NotImplementedException();
             }
 
-            if (deviceInfos.Count == 1)
+            int phoneIndex = 0;
+            int phonePosition = 0;
+
+            while (phoneIndex != deviceInfos.Count)
             {
-                int middleIndex = (_matrix.Tiles[xPosition].Count - Settings.RoomCoridorLenght)/2 + Settings.RoomCoridorLenght;
+                phonePosition = (phoneIndex + 1) * (_matrix.Tiles[xPosition].Count - Settings.RoomCoridorLenght) / (deviceInfos.Count + 1) + Settings.RoomCoridorLenght;
 
-                AddDeviceToWall(xPosition, middleIndex, deviceInfos[0].Name, orientation);
-            }
-
-            if (deviceInfos.Count == 2)
-            {
-                int middleIndex1 = (_matrix.Tiles[xPosition].Count - Settings.RoomCoridorLenght)/3 + Settings.RoomCoridorLenght;
-                int middleIndex2 = 2*(_matrix.Tiles[xPosition].Count - Settings.RoomCoridorLenght)/3 + Settings.RoomCoridorLenght;
-
-                AddDeviceToWall(xPosition, middleIndex1, deviceInfos[0].Name, orientation);
-                AddDeviceToWall(xPosition, middleIndex2, deviceInfos[1].Name, orientation);
-            }
-        }
+                AddDeviceToWall(xPosition, phonePosition, deviceInfos[phoneIndex].Name, orientation);
+                phoneIndex++;
+            }}
 
         public void AddDeviceToWall(int x, int y, string name, TextOrientation orientation)
         {

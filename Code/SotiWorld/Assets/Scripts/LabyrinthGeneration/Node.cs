@@ -88,14 +88,6 @@ namespace Assets.Scripts.LabyrinthGeneration
 
             return Nodes.Max(n => n.GetMaxDepth());
         }
-
-        public int GetMaxWith()
-        {
-            if (Nodes.Count == 0)
-                return Settings.DefaultWidth;
-
-            return Nodes.Count + Settings.Scale + Settings.DefaultHeight;
-        }
     }
 
     public class DeviceInfo
