@@ -13,16 +13,34 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject character;
+    public GameObject mainMenu;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         BuildMaze();
     }
 	
 	// Update is called once per frame
 	void Update ()
 	{
-	}
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            mainMenu.SetActive(!mainMenu.activeSelf);
+            Time.timeScale = mainMenu.activeSelf ? 0 : 1;
+        }
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1;
+        Application.LoadLevel(Application.loadedLevelName);
+    }
+
+    public void ExitGame()
+    {
+        Time.timeScale = 1;
+        Application.Quit();
+    }
 
     private void BuildMaze()
     {

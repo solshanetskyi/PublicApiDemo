@@ -8,22 +8,33 @@ using UnityEngine.UI;
 
 public class CastleGameManager : MonoBehaviour
 {
+    public GameObject mainMenu;
+
     // Use this for initialization
     void Start()
     {
-
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
+        {
+            mainMenu.SetActive(!mainMenu.activeSelf);
+            Time.timeScale = mainMenu.activeSelf ? 0 : 1;
+        }
     }
 
-    public void Restartlevel()
+    public void Restart()
     {
+        Time.timeScale = 1;
         Application.LoadLevel(Application.loadedLevelName);
+    }
+
+    public void ExitGame()
+    {
+        Time.timeScale = 1;
+        Application.Quit();
     }
 
     public void GoToMaze()
