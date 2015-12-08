@@ -14,8 +14,9 @@ namespace Assets.Scripts.Integration
         private string Token = "/token";
         private string DeviceGroups = "/devicegroups";
         private string Devices = "/devices";
+        private string DeviceAction = "/devices/{0}/actions";
 
-        private string _accessToken;
+        private static string _accessToken;
 
         public PublicApiGateway(string url, string clientId, string clientSecret)
         {
@@ -123,6 +124,50 @@ namespace Assets.Scripts.Integration
             }
 
             return devices.ToArray();
+        }
+
+        public void LockDevice(string deviceId)
+        {
+            Dictionary<string, string> headers = new Dictionary<string, string>();
+            headers.Add("Authorization", "Bearer " + _accessToken);
+            headers.Add("Accept", "application/json");
+
+            string request = @"{ 'Action': 'Lock'}";
+            byte[] requestBytes = System.Text.Encoding.UTF8.GetBytes(request);
+
+            WWW www = new WWW(_url + string.Format(DeviceAction, deviceId), requestBytes, headers);
+
+            while (!www.isDone)
+            { }
+
+            if (!string.IsNullOrEmpty(www.error))
+            {
+                Debug.Log("Error during lock operation." + www.error);
+            }
+
+            var root = SimpleJSON.JSON.Parse(www.text);
+        }
+
+        public void SendMessageToDevice(string deviceId, string message)
+        {
+            Dictionary<string, string> headers = new Dictionary<string, string>();
+            headers.Add("Authorization", "Bearer " + _accessToken);
+            headers.Add("Accept", "application/json");
+
+            string request = string.Format("{{ 'Action': 'SendMessage', 'Message':'{0}'}}", message);
+            byte[] requestBytes = System.Text.Encoding.UTF8.GetBytes(request);
+
+            WWW www = new WWW(_url + string.Format(DeviceAction, deviceId), requestBytes, headers);
+
+            while (!www.isDone)
+            { }
+
+            if (!string.IsNullOrEmpty(www.error))
+            {
+                Debug.Log("Error during send message operation." + www.error);
+            }
+
+            var root = SimpleJSON.JSON.Parse(www.text);
         }
     }
 }
