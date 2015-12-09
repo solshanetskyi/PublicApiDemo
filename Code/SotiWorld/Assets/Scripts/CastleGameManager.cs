@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class CastleGameManager : MonoBehaviour
 {
     public GameObject mainMenu;
+    public GameObject mazeMenu;
 
     // Use this for initialization
     void Start()
@@ -18,7 +19,7 @@ public class CastleGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !mazeMenu.activeSelf)
         {
             mainMenu.SetActive(!mainMenu.activeSelf);
             Time.timeScale = mainMenu.activeSelf ? 0 : 1;
