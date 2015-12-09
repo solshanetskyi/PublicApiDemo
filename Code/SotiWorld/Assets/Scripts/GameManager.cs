@@ -9,11 +9,14 @@ using Assets.Scripts;
 using Assets.Scripts.Integration;
 using Assets.Scripts.LabyrinthGeneration;
 using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject character;
     public GameObject mainMenu;
+    public GameObject deviceManagementMenu;
+    public GameObject deviceManagementPrompt;
 
     // Use this for initialization
     void Start () {
@@ -25,8 +28,23 @@ public class GameManager : MonoBehaviour
 	{
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            mainMenu.SetActive(!mainMenu.activeSelf);
-            Time.timeScale = mainMenu.activeSelf ? 0 : 1;
+            if (deviceManagementMenu.activeSelf)
+            {
+                deviceManagementMenu.SetActive(false);
+                character.GetComponent<FirstPersonController>().enabled = true;
+            }
+            else
+            {
+                mainMenu.SetActive(!mainMenu.activeSelf);
+                Time.timeScale = mainMenu.activeSelf ? 0 : 1;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return) && Game.ActiveDevice != null)
+        {
+            character.GetComponent<FirstPersonController>().enabled = false;
+            deviceManagementPrompt.SetActive(false);
+            deviceManagementMenu.SetActive(true);
         }
     }
 

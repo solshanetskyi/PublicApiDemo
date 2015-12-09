@@ -12,6 +12,8 @@ namespace Assets.Scripts
         private static Matrix _labyrinthMatrix;
         private static IPublicApiGateway _publicApiGateway;
 
+        public static string ActiveDevice { get; set; }
+
         public static int TotalGroups { get; private set; }
 
         public static int TotalDevices { get; private set; }
@@ -32,6 +34,8 @@ namespace Assets.Scripts
         {
             if (_publicApiGateway == null)
                 throw new InvalidOperationException("Labyrinth has not been created yet");
+
+            ActiveDevice = null;
 
             var deviceGroups = _publicApiGateway.GetDeviceGroups();
             var devices = _publicApiGateway.GetDevices();
