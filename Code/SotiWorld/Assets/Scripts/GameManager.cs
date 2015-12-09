@@ -40,11 +40,24 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Return) && Game.ActiveDevice != null)
+        if (Input.GetKeyDown(KeyCode.Return) && Game.ActiveDeviceId != null)
         {
             character.GetComponent<FirstPersonController>().enabled = false;
             deviceManagementPrompt.SetActive(false);
             deviceManagementMenu.SetActive(true);
+
+            string agentVersionValue = Game.GetDeviceById(Game.ActiveDeviceId).AgentVersion;
+
+            if (agentVersionValue == "null")
+                agentVersionValue = "Not Installed";
+
+            GameObject.Find("DeviceNameValue").GetComponent<Text>().text = Game.GetDeviceById(Game.ActiveDeviceId).Name;
+            GameObject.Find("DeviceIdValue").GetComponent<Text>().text = Game.GetDeviceById(Game.ActiveDeviceId).DeviceId;
+            GameObject.Find("MacValue").GetComponent<Text>().text = Game.GetDeviceById(Game.ActiveDeviceId).MacAddress;
+            GameObject.Find("AgentVersionValue").GetComponent<Text>().text = agentVersionValue;
+            GameObject.Find("ManufacturerValue").GetComponent<Text>().text = Game.GetDeviceById(Game.ActiveDeviceId).Manufacturer;
+            GameObject.Find("ModelValue").GetComponent<Text>().text = Game.GetDeviceById(Game.ActiveDeviceId).Model;
+            GameObject.Find("BatteryStatusValue").GetComponent<Text>().text = Game.GetDeviceById(Game.ActiveDeviceId).BatteryStatus;
         }
     }
 

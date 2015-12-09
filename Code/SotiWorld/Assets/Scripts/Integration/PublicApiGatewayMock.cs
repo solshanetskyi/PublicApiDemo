@@ -50,7 +50,7 @@ namespace Assets.Scripts.Integration
                     Name = deviceNode["DeviceName"].Value,
                     Path = deviceNode["Path"].Value,
                     DeviceId = deviceNode["DeviceId"].Value,
-                    MacAddress = deviceNode["MacAddress"].Value,
+                    MacAddress = deviceNode["MACAddress"].Value,
                     Manufacturer = deviceNode["Manufacturer"].Value,
                     Model = deviceNode["Model"].Value,
                     BatteryStatus = deviceNode["BatteryStatus"].Value,

@@ -11,14 +11,14 @@ public class CharacterCollider : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        manageDevicePrompt.GetComponent<Text>().text = String.Format("Press Enter to manage device '{0}'", Game.GetDeviceById(other.name).Name);
-        Game.ActiveDevice = other.name;
+        manageDevicePrompt.GetComponent<Text>().text = String.Format("Press 'Enter' to manage device '{0}'", Game.GetDeviceById(other.name).Name);
+        Game.ActiveDeviceId = other.name;
         manageDevicePanel.SetActive(true);
     }
 
     void OnTriggerExit(Collider other)
     {
-        Game.ActiveDevice = null;
+        Game.ActiveDeviceId = null;
         manageDevicePanel.SetActive(false);
     }
 }
