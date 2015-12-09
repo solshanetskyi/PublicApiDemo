@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
+        Game.Refresh();
+
         Time.timeScale = 1;
         Application.LoadLevel(Application.loadedLevelName);
     }
