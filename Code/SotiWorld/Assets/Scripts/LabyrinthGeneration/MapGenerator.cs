@@ -50,7 +50,7 @@ namespace Assets.Scripts.LabyrinthGeneration
 
                 groupNode.SetDevices(devices.Where(d => d.Path == deviceGroup.Path).Select(d => new DeviceInfo
                 {
-                    Name = d.Name
+                    DeviceId = d.DeviceId
                 }));
 
                 topNode.Nodes.Add(groupNode);
@@ -69,7 +69,7 @@ namespace Assets.Scripts.LabyrinthGeneration
 
             groupNode.SetDevices(devices.Where(d => d.Path == deviceGroup.Path).Select(d => new DeviceInfo
             {
-                Name = d.Name
+                DeviceId = d.DeviceId
             }));
 
             parentNode.Nodes.Add(groupNode);

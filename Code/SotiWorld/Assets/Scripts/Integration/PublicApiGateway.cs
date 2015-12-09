@@ -117,7 +117,13 @@ namespace Assets.Scripts.Integration
                 Device deviceGroup = new Device
                 {
                     Name = group["DeviceName"].Value,
-                    Path = group["Path"].Value
+                    Path = group["Path"].Value,
+                    DeviceId = group["DeviceId"].Value,
+                    MacAddress = group["MacAddress"].Value,
+                    Manufacturer = group["Manufacturer"].Value,
+                    Model = group["Model"].Value,
+                    BatteryStatus = group["BatteryStatus"].Value,
+                    AgentVersion = group["AgentVersion"].Value
                 };
 
                 devices.Add(deviceGroup);

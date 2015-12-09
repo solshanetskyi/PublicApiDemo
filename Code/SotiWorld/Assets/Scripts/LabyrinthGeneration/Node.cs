@@ -92,6 +92,6 @@ namespace Assets.Scripts.LabyrinthGeneration
 
     public class DeviceInfo
     {
-        public string Name { get; set; }
+        public string DeviceId { get; set; }
     }
 }

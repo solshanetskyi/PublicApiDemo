@@ -94,7 +94,7 @@ namespace Assets.Scripts.LabyrinthGeneration
             {
                 phonePosition = (phoneIndex + 1) * (_matrix.Tiles[xPosition].Count - Settings.RoomCoridorLenght) / (deviceInfos.Count + 1) + Settings.RoomCoridorLenght;
 
-                AddDeviceToWall(xPosition, phonePosition, deviceInfos[phoneIndex].Name, orientation);
+                AddDeviceToWall(xPosition, phonePosition, deviceInfos[phoneIndex].DeviceId, orientation);
                 phoneIndex++;
             }}
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using Assets.Scripts;
 using UnityEngine.UI;
 
 public class CharacterCollider : MonoBehaviour
@@ -10,7 +11,7 @@ public class CharacterCollider : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        manageDevicePrompt.GetComponent<Text>().text = String.Format("Press M to manage device '{0}'", other.name);
+        manageDevicePrompt.GetComponent<Text>().text = String.Format("Press M to manage device '{0}'", Game.GetDeviceById(other.name).Name);
         manageDevicePanel.SetActive(true);
     }
 

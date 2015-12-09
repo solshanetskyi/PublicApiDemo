@@ -16,6 +16,8 @@ namespace Assets.Scripts
 
         public static int TotalDevices { get; private set; }
 
+        public static Dictionary<string, Device> _devices = new Dictionary<string, Device>();
+
         public static void GenerateLabyrinth(IPublicApiGateway publicApiGateway)
         {
             if (publicApiGateway == null)
@@ -33,6 +35,8 @@ namespace Assets.Scripts
 
             var deviceGroups = _publicApiGateway.GetDeviceGroups();
             var devices = _publicApiGateway.GetDevices();
+
+            _devices = devices.ToDictionary(d => d.DeviceId, d => d);
 
             TotalGroups = deviceGroups.Length;
             TotalDevices = devices.Length;
@@ -52,6 +56,11 @@ namespace Assets.Scripts
 
                 return _labyrinthMatrix;
             }
+        }
+
+        public static Device GetDeviceById(string deviceId)
+        {
+            return _devices[deviceId];
         }
     }
 }
