@@ -6,10 +6,6 @@ namespace Assets.Scripts.Integration
 {
     class PublicApiGatewayMock : IPublicApiGateway
     {
-        public void Login(string username, string password)
-        {
-        }
-
         public DeviceGroup[] GetDeviceGroups()
         {
             List<DeviceGroup> deviceGroups = new List<DeviceGroup>();

@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
             GameObject.Find("ModelValue").GetComponent<Text>().text = Game.GetDeviceById(Game.ActiveDeviceId).Model;
             GameObject.Find("BatteryStatusValue").GetComponent<Text>().text = Game.GetDeviceById(Game.ActiveDeviceId).BatteryStatus + "%";
             GameObject.Find("InstalledAppsValue").GetComponent<Text>().text = Game.GetInstalledApplictionsById(Game.ActiveDeviceId).Length.ToString();
+            GameObject.Find("ActionResultText").GetComponent<Text>().text = String.Empty;
         }
     }
 
@@ -84,16 +85,35 @@ public class GameManager : MonoBehaviour
 
     public void LockActiveDevice()
     {
-        Game.PublicApiGateway.LockDevice(Game.ActiveDeviceId);
+        var actionResultText = GameObject.Find("ActionResultText").GetComponent<Text>();
+
+        try
+        {
+            Game.PublicApiGateway.LockDevice(Game.ActiveDeviceId);
+            actionResultText.text = "Lock action executed!";
+        }
+        catch (Exception ex)
+        {
+            actionResultText.text = "An error occured: " + ex.Message;
+        }
     }
 
     public void SendMessage()
     {
+        var actionResultText = GameObject.Find("ActionResultText").GetComponent<Text>();
         InputField messageComponent = GameObject.Find("Message").GetComponent<InputField>();
 
         string message = messageComponent.text;
 
-        Game.PublicApiGateway.SendMessageToDevice(Game.ActiveDeviceId, message);
+        try
+        {
+            Game.PublicApiGateway.SendMessageToDevice(Game.ActiveDeviceId, message);
+            actionResultText.text = "Message sent!";
+        }
+        catch (Exception ex)
+        {
+            actionResultText.text = "An error occured: " + ex.Message;
+        }
 
         messageComponent.text = string.Empty;
     }

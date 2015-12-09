@@ -10,6 +10,8 @@ namespace Assets.Scripts.Integration
         private readonly string _url;
         private readonly string _clientId;
         private readonly string _clientSecret;
+        private readonly string _userName;
+        private readonly string _password;
 
         private string Token = "/token";
         private string DeviceGroups = "/devicegroups";
@@ -17,27 +19,27 @@ namespace Assets.Scripts.Integration
         private string DeviceAction = "/devices/{0}/actions";
         private string DeviceApplications = "/devices/{0}/installedApplications";
 
-        private static string _accessToken;
-
         static PublicApiGateway()
         {
             System.Net.ServicePointManager.ServerCertificateValidationCallback = (o, cert, chain, e) => true;
         }
 
-        public PublicApiGateway(string url, string clientId, string clientSecret)
+        public PublicApiGateway(string url, string clientId, string clientSecret, string userName, string password)
         {
             _url = url;
             _clientId = clientId;
             _clientSecret = clientSecret;
+            _userName = userName;
+            _password = password;
         }
 
-        public void Login(string username, string password)
+        private string Login()
         {
             WWWForm form = new WWWForm();
 
             form.AddField("grant_type", "password");
-            form.AddField("username", username);
-            form.AddField("password", password);
+            form.AddField("username", _userName);
+            form.AddField("password", _password);
 
             string userNamePassword = string.Format("{0}:{1}", _clientId, _clientSecret);
 
@@ -59,15 +61,17 @@ namespace Assets.Scripts.Integration
 
             var root = SimpleJSON.JSON.Parse(www.text);
 
-            _accessToken =  root["access_token"];
+            return root["access_token"];
         }
 
         public DeviceGroup[] GetDeviceGroups()
         {
+            string accessToken = Login();
+
             List<DeviceGroup> deviceGroups = new List<DeviceGroup>();
 
             Dictionary<string, string> headers = new Dictionary<string, string>();
-            headers.Add("Authorization", "Bearer " + _accessToken);
+            headers.Add("Authorization", "Bearer " + accessToken);
             headers.Add("Accept", "application/json");
 
             WWW www = new WWW(_url + DeviceGroups, null, headers);
@@ -100,10 +104,12 @@ namespace Assets.Scripts.Integration
 
         public Device[] GetDevices()
         {
+            string accessToken = Login();
+
             List<Device> devices = new List<Device>();
 
             Dictionary<string, string> headers = new Dictionary<string, string>();
-            headers.Add("Authorization", "Bearer " + _accessToken);
+            headers.Add("Authorization", "Bearer " + accessToken);
             headers.Add("Accept", "application/json");
 
             WWW www = new WWW(_url + Devices, null, headers);
@@ -140,8 +146,10 @@ namespace Assets.Scripts.Integration
 
         public void LockDevice(string deviceId)
         {
+            string accessToken = Login();
+
             Dictionary<string, string> headers = new Dictionary<string, string>();
-            headers.Add("Authorization", "Bearer " + _accessToken);
+            headers.Add("Authorization", "Bearer " + accessToken);
             headers.Add("Accept", "application/json");
             headers.Add("Content-Type", "application/json");
 
@@ -155,7 +163,7 @@ namespace Assets.Scripts.Integration
 
             if (!string.IsNullOrEmpty(www.error))
             {
-                Debug.Log("Error during lock operation." + www.error);
+                throw new InvalidOperationException("Error during lock operation." + www.error);
             }
 
             var root = SimpleJSON.JSON.Parse(www.text);
@@ -163,8 +171,10 @@ namespace Assets.Scripts.Integration
 
         public void SendMessageToDevice(string deviceId, string message)
         {
+            string accessToken = Login();
+
             Dictionary<string, string> headers = new Dictionary<string, string>();
-            headers.Add("Authorization", "Bearer " + _accessToken);
+            headers.Add("Authorization", "Bearer " + accessToken);
             headers.Add("Accept", "application/json");
             headers.Add("Content-Type", "application/json");
 
@@ -178,7 +188,7 @@ namespace Assets.Scripts.Integration
 
             if (!string.IsNullOrEmpty(www.error))
             {
-                Debug.Log("Error during send message operation." + www.error);
+                throw new InvalidOperationException("Error during lock operation." + www.error);
             }
 
             var root = SimpleJSON.JSON.Parse(www.text);
@@ -186,10 +196,12 @@ namespace Assets.Scripts.Integration
 
         public InstalledApplication[] GetInstalledApplications(string deviceId)
         {
+            string accessToken = Login();
+
             List<InstalledApplication> installedApps = new List<InstalledApplication>();
 
             Dictionary<string, string> headers = new Dictionary<string, string>();
-            headers.Add("Authorization", "Bearer " + _accessToken);
+            headers.Add("Authorization", "Bearer " + accessToken);
             headers.Add("Accept", "application/json");
 
             WWW www = new WWW(_url + string.Format(DeviceApplications, deviceId), null, headers);

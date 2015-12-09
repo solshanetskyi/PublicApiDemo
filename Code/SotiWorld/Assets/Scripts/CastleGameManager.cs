@@ -60,11 +60,10 @@ public class CastleGameManager : MonoBehaviour
             string clientId = credentialTokens[2];
             string clientSecret = credentialTokens[3];
 
-            publicApiGateway = new PublicApiGateway(instanceUrlText.text, clientId, clientSecret);
+            publicApiGateway = new PublicApiGateway(instanceUrlText.text, clientId, clientSecret, userName, password);
             try
             {
                 ShowMessage("Please wait...");
-                publicApiGateway.Login(userName, password);
                 Game.GenerateLabyrinth(publicApiGateway);
             }
             catch (Exception ex)
