@@ -18,7 +18,7 @@ namespace LabyrinthGenerator
             Parent = parent;
         }
 
-        public List<Node> Nodes { get; }
+        public List<Node> Nodes { get; private set; }
 
         public int Level
         {
@@ -37,7 +37,7 @@ namespace LabyrinthGenerator
             }
         }
 
-        public Node Parent { get; }
+        public Node Parent { get; private set; }
 
         public int GetSize()
         {

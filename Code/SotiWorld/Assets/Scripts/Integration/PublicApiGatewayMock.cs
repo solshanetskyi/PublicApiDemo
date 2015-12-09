@@ -70,5 +70,10 @@ namespace Assets.Scripts.Integration
         public void SendMessageToDevice(string deviceId, string message)
         {
         }
+
+        public InstalledApplication[] GetInstalledApplications(string deviceId)
+        {
+            return new InstalledApplication[0];
+        }
     }
 }

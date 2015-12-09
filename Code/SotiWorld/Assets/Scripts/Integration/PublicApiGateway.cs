@@ -15,6 +15,7 @@ namespace Assets.Scripts.Integration
         private string DeviceGroups = "/devicegroups";
         private string Devices = "/devices";
         private string DeviceAction = "/devices/{0}/actions";
+        private string DeviceApplications = "/devices/{0}/installedApplications";
 
         private static string _accessToken;
 
@@ -176,6 +177,41 @@ namespace Assets.Scripts.Integration
             }
 
             var root = SimpleJSON.JSON.Parse(www.text);
+        }
+
+        public InstalledApplication[] GetInstalledApplications(string deviceId)
+        {
+            List<InstalledApplication> installedApps = new List<InstalledApplication>();
+
+            Dictionary<string, string> headers = new Dictionary<string, string>();
+            headers.Add("Authorization", "Bearer " + _accessToken);
+            headers.Add("Accept", "application/json");
+
+            WWW www = new WWW(_url + string.Format(DeviceApplications, deviceId), null, headers);
+
+            while (!www.isDone)
+            { }
+
+            if (!string.IsNullOrEmpty(www.error))
+            {
+                Debug.Log("Error during getting installed applications." + www.error);
+            }
+
+            var root = JSON.Parse(www.text);
+
+            foreach (var applicationNode in root.Childs)
+            {
+                InstalledApplication installedApplication = new InstalledApplication
+                {
+                    Name = applicationNode["Name"].Value,
+                    ApplicationId = applicationNode["ApplicationId"].Value,
+                    DeviceId = applicationNode["DeviceId"].Value,
+                };
+
+                installedApps.Add(installedApplication);
+            }
+
+            return installedApps.ToArray();
         }
     }
 }

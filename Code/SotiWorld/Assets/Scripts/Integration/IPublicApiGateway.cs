@@ -11,5 +11,7 @@
         void LockDevice(string deviceId);
 
         void SendMessageToDevice(string deviceId, string message);
+
+        InstalledApplication[] GetInstalledApplications(string deviceId);
     }
 }

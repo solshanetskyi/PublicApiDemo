@@ -10,27 +10,12 @@ namespace LabyrinthGenerator
     {
         static void Main(string[] args)
         {
-//            Room room = new Room(9);
-//
-//            room.AsMatrix().Print();
-//
-//            return;
-
 
             Node root = new Node("Root");
 
             var top = new Node(root, "Top");
 
             root.Nodes.Add(top);
-
-            Node subTop1 = new Node(top, "subTop1");
-            Node subTop2 = new Node(top, "subTop2");
-            Node subTop3 = new Node(top, "subTop3");
-
-            subTop3.Nodes.Add(new Node(subTop3, "subsubtop3"));
-            subTop3.Nodes.Add(new Node(subTop3, "subsubtop4"));
-
-            top.Nodes.AddRange(new []{subTop1, subTop2, subTop3});
 
             Node middleNode = new Node(root, "Middle");
             middleNode.Nodes.Add(new Node(middleNode, "Middle_1"));
@@ -67,15 +52,7 @@ namespace LabyrinthGenerator
 
             int height = depth * (Settings.DefaultHeight + Settings.RoomCoridorLenght);
 
-            Console.WriteLine("Depth " + depth);
-            Console.WriteLine("Width " + height);
-
             var allNodes = new []{parentNode}.FancyFlatten(n => true, n => n.Nodes).ToArray();
-
-            var biggestLevel = allNodes.GroupBy(n => n.Level).OrderBy(g => g.Sum(n => n.GetSize())).Last();
-            
-            Console.WriteLine("Biggest level id " + biggestLevel.Key);
-            Console.WriteLine("Biggest level count " + biggestLevel.Sum(n => n.GetSize()));
 
             int labyrinthWidth = parentNode.GetSize();
 
