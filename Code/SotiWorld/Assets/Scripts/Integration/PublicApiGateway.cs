@@ -19,6 +19,11 @@ namespace Assets.Scripts.Integration
 
         private static string _accessToken;
 
+        static PublicApiGateway()
+        {
+            System.Net.ServicePointManager.ServerCertificateValidationCallback = (o, cert, chain, e) => true;
+        }
+
         public PublicApiGateway(string url, string clientId, string clientSecret)
         {
             _url = url;

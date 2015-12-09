@@ -41,11 +41,10 @@ namespace Assets.Scripts
             var deviceGroups = PublicApiGateway.GetDeviceGroups();
             var devices = PublicApiGateway.GetDevices();
 
+            _installedApplications.Clear();
             foreach (Device device in devices)
             {
                 var installedApps = PublicApiGateway.GetInstalledApplications(device.DeviceId);
-
-                _installedApplications.Clear();
 
                 _installedApplications.Add(device.DeviceId, installedApps);
             }
@@ -79,7 +78,7 @@ namespace Assets.Scripts
 
         public static InstalledApplication[] GetInstalledApplictionsById(string deviceId)
         {
-            return _installedApplications[deviceId];
+            return _installedApplications.ContainsKey(deviceId) ? _installedApplications[deviceId] : new InstalledApplication[0];
         }
     }
 }

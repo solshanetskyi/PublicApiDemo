@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
             GameObject.Find("ManufacturerValue").GetComponent<Text>().text = Game.GetDeviceById(Game.ActiveDeviceId).Manufacturer;
             GameObject.Find("ModelValue").GetComponent<Text>().text = Game.GetDeviceById(Game.ActiveDeviceId).Model;
             GameObject.Find("BatteryStatusValue").GetComponent<Text>().text = Game.GetDeviceById(Game.ActiveDeviceId).BatteryStatus + "%";
+            GameObject.Find("InstalledAppsValue").GetComponent<Text>().text = Game.GetInstalledApplictionsById(Game.ActiveDeviceId).Length.ToString();
         }
     }
 

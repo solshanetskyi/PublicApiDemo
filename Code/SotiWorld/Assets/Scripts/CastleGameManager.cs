@@ -69,7 +69,7 @@ public class CastleGameManager : MonoBehaviour
             }
             catch (Exception ex)
             {
-                ShowMessage("Failed to retrieve data from MobiControl public API. Make sure that the values you entered are correct.");
+                ShowMessage("Failed to retrieve data from MobiControl public API. Make sure that the values you entered are correct. Details :"  + ex.Message);
                 return;
             }
         }
