@@ -10,7 +10,7 @@ namespace Assets.Scripts
     public static class Game
     {
         private static Matrix _labyrinthMatrix;
-        private static IPublicApiGateway _publicApiGateway;
+        public static IPublicApiGateway PublicApiGateway { get; private set; }
 
         public static string ActiveDeviceId { get; set; }
 
@@ -25,20 +25,20 @@ namespace Assets.Scripts
             if (publicApiGateway == null)
                 throw new ArgumentNullException("publicApiGateway");
 
-            _publicApiGateway = publicApiGateway;
+            PublicApiGateway = publicApiGateway;
 
             Refresh();
         }
 
         public static void Refresh()
         {
-            if (_publicApiGateway == null)
+            if (PublicApiGateway == null)
                 throw new InvalidOperationException("Labyrinth has not been created yet");
 
             ActiveDeviceId = null;
 
-            var deviceGroups = _publicApiGateway.GetDeviceGroups();
-            var devices = _publicApiGateway.GetDevices();
+            var deviceGroups = PublicApiGateway.GetDeviceGroups();
+            var devices = PublicApiGateway.GetDevices();
 
             _devices = devices.ToDictionary(d => d.DeviceId, d => d);
 
@@ -54,8 +54,8 @@ namespace Assets.Scripts
             {
                 if (_labyrinthMatrix == null)
                 {
-                    _publicApiGateway = new PublicApiGatewayMock();
-                    GenerateLabyrinth(_publicApiGateway);
+                    PublicApiGateway = new PublicApiGatewayMock();
+                    GenerateLabyrinth(PublicApiGateway);
                 }
 
                 return _labyrinthMatrix;

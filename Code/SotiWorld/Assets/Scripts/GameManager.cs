@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
             GameObject.Find("AgentVersionValue").GetComponent<Text>().text = agentVersionValue;
             GameObject.Find("ManufacturerValue").GetComponent<Text>().text = Game.GetDeviceById(Game.ActiveDeviceId).Manufacturer;
             GameObject.Find("ModelValue").GetComponent<Text>().text = Game.GetDeviceById(Game.ActiveDeviceId).Model;
-            GameObject.Find("BatteryStatusValue").GetComponent<Text>().text = Game.GetDeviceById(Game.ActiveDeviceId).BatteryStatus;
+            GameObject.Find("BatteryStatusValue").GetComponent<Text>().text = Game.GetDeviceById(Game.ActiveDeviceId).BatteryStatus + "%";
         }
     }
 
@@ -79,6 +79,22 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         Application.Quit();
+    }
+
+    public void LockActiveDevice()
+    {
+        Game.PublicApiGateway.LockDevice(Game.ActiveDeviceId);
+    }
+
+    public void SendMessage()
+    {
+        InputField messageComponent = GameObject.Find("Message").GetComponent<InputField>();
+
+        string message = messageComponent.text;
+
+        Game.PublicApiGateway.SendMessageToDevice(Game.ActiveDeviceId, message);
+
+        messageComponent.text = string.Empty;
     }
 
     private void BuildMaze()
