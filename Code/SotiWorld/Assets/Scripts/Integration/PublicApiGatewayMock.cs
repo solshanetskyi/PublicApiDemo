@@ -48,7 +48,13 @@ namespace Assets.Scripts.Integration
                 Device device = new Device
                 {
                     Name = deviceNode["DeviceName"].Value,
-                    Path = deviceNode["Path"].Value
+                    Path = deviceNode["Path"].Value,
+                    DeviceId = deviceNode["DeviceId"].Value,
+                    MacAddress = deviceNode["MacAddress"].Value,
+                    Manufacturer = deviceNode["Manufacturer"].Value,
+                    Model = deviceNode["Model"].Value,
+                    BatteryStatus = deviceNode["BatteryStatus"].Value,
+                    AgentVersion = deviceNode["AgentVersion"].Value
                 };
 
                 devices.Add(device);

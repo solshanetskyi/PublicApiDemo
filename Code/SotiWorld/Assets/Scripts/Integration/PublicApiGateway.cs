@@ -112,18 +112,18 @@ namespace Assets.Scripts.Integration
 
             var root = JSON.Parse(www.text);
 
-            foreach (var group in root.Childs)
+            foreach (var deviceNode in root.Childs)
             {
                 Device deviceGroup = new Device
                 {
-                    Name = group["DeviceName"].Value,
-                    Path = group["Path"].Value,
-                    DeviceId = group["DeviceId"].Value,
-                    MacAddress = group["MacAddress"].Value,
-                    Manufacturer = group["Manufacturer"].Value,
-                    Model = group["Model"].Value,
-                    BatteryStatus = group["BatteryStatus"].Value,
-                    AgentVersion = group["AgentVersion"].Value
+                    Name = deviceNode["DeviceName"].Value,
+                    Path = deviceNode["Path"].Value,
+                    DeviceId = deviceNode["DeviceId"].Value,
+                    MacAddress = deviceNode["MacAddress"].Value,
+                    Manufacturer = deviceNode["Manufacturer"].Value,
+                    Model = deviceNode["Model"].Value,
+                    BatteryStatus = deviceNode["BatteryStatus"].Value,
+                    AgentVersion = deviceNode["AgentVersion"].Value
                 };
 
                 devices.Add(deviceGroup);
