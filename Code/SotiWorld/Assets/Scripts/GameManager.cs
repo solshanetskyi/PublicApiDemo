@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
                     }
                     else if (tile.TileType == TileType.Iphone)
                     {
-                        tileObjects.Add(new IPhoneObject() {Orientation = tile.Orientation});
+                        tileObjects.Add(new IPhoneObject() { Orientation = tile.Orientation, DeviceId = tile.Text });
 
                         tileObjects.Add(new TextObject(tile.Text)
                         {
